@@ -3,7 +3,7 @@ import React from "react";
 export type Variants =
   | "default"
   | "outlined"
-  | "tertiary1"
+  | "secondary"
   | "teriary2"
   | "disabled";
 
@@ -29,7 +29,7 @@ const Button: React.FC<Props> = ({
         return "bg-blue-100 text-white cursor-pointer";
       case "outlined":
         return "bg-transparent text-blue-100 border border-blue-100 cursor-pointer";
-      case "tertiary1":
+      case "secondary":
         return "bg-blue-20 text-blue-100 border border-blue-100 cursor-pointer ";
       default:
         return "bg-blue-100 text-white cursor-pointer";

@@ -10,7 +10,7 @@ const Button = ({ children, variant = "default", disabled = false, onClick, }) =
                 return "bg-blue-100 text-white cursor-pointer";
             case "outlined":
                 return "bg-transparent text-blue-100 border border-blue-100 cursor-pointer";
-            case "tertiary1":
+            case "secondary":
                 return "bg-blue-20 text-blue-100 border border-blue-100 cursor-pointer ";
             default:
                 return "bg-blue-100 text-white cursor-pointer";
@@ -29,5 +29,14 @@ const SearchBar = ({ value, onChange, handleSearch, }) => {
                 } }), jsx("button", { onClick: handleSearch, type: "submit", children: jsx(SearchIcon, {}) })] }));
 };
 
-export { Button, SearchBar };
+const Prompt = ({ isOpen }) => {
+    //   const modalRef = useRef(null);
+    const backdropStyle = "fixed top-0 left-0 !w-screen !h-screen bg-[rgba(0, 0, 0, 0.5)] flex justify-center items-center";
+    const dialogContentStyle = "bg-white p-2  w-[50%]";
+    return (jsx("div", { className: backdropStyle, 
+        //   ref={modalRef}
+        style: { display: isOpen ? "inline-block" : "none", position: "fixed" }, children: jsx("div", { className: dialogContentStyle, children: "zdvs" }) }));
+};
+
+export { Button, Prompt, SearchBar };
 //# sourceMappingURL=index.js.map

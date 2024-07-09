@@ -1,10 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"], // remove redundant utility classes
+  content: [
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/components/**/*.{js,jsx,ts,tsx}",
+  ], // remove redundant utility classes
   theme: {
     colors: {
       red: {
-        100: "#E43E2B",
+        100: "#E43E2B100",
         80: "#E43E2B80",
         60: "#E43E2B8060",
         40: "#E43E2B80",
