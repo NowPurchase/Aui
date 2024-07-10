@@ -6,7 +6,7 @@
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --watch",
     "build:css": "npx tailwindcss -m -i ./src/index.css -o ./dist/styles.css --watch ",
     "dev": "concurrently \"rollup -c -w\" \"npm run storybook\" ",
     "test": "jest --watchAll --verbose",

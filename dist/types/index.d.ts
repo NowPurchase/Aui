@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Variants = "default" | "outlined" | "secondary" | "teriary2" | "disabled";
+type Variants = "primary" | "outlined" | "secondary" | "teriary2" | "disabled";
 interface Props {
     children: React.ReactNode;
     variant?: Variants;
@@ -18,6 +18,7 @@ declare const SearchBar: React.FC<SearchBarProps>;
 
 interface ModalProps {
     isOpen: boolean;
+    closeModal: () => void;
 }
 declare const Prompt: React.FC<ModalProps>;
 

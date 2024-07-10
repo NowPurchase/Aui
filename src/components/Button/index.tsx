@@ -1,7 +1,7 @@
 import React from "react";
 
 export type Variants =
-  | "default"
+  | "primary"
   | "outlined"
   | "secondary"
   | "teriary2"
@@ -16,7 +16,7 @@ export interface Props {
 
 const Button: React.FC<Props> = ({
   children,
-  variant = "default",
+  variant = "primary",
   disabled = false,
   onClick,
 }) => {
@@ -25,7 +25,7 @@ const Button: React.FC<Props> = ({
       return "bg-grey text-white cursor-not-allowed";
     }
     switch (variant) {
-      case "default":
+      case "primary":
         return "bg-blue-100 text-white cursor-pointer";
       case "outlined":
         return "bg-transparent text-blue-100 border border-blue-100 cursor-pointer";

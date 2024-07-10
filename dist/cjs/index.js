@@ -1,14 +1,15 @@
 'use strict';
 
 var jsxRuntime = require('react/jsx-runtime');
+var React = require('react');
 
-const Button = ({ children, variant = "default", disabled = false, onClick, }) => {
+const Button = ({ children, variant = "primary", disabled = false, onClick, }) => {
     const buttonStyle = () => {
         if (disabled) {
             return "bg-grey text-white cursor-not-allowed";
         }
         switch (variant) {
-            case "default":
+            case "primary":
                 return "bg-blue-100 text-white cursor-pointer";
             case "outlined":
                 return "bg-transparent text-blue-100 border border-blue-100 cursor-pointer";
@@ -31,13 +32,24 @@ const SearchBar = ({ value, onChange, handleSearch, }) => {
                 } }), jsxRuntime.jsx("button", { onClick: handleSearch, type: "submit", children: jsxRuntime.jsx(SearchIcon, {}) })] }));
 };
 
-const Prompt = ({ isOpen }) => {
-    //   const modalRef = useRef(null);
-    const backdropStyle = "fixed top-0 left-0 !w-screen !h-screen bg-[rgba(0, 0, 0, 0.5)] flex justify-center items-center";
-    const dialogContentStyle = "bg-white p-2  w-[50%]";
-    return (jsxRuntime.jsx("div", { className: backdropStyle, 
-        //   ref={modalRef}
-        style: { display: isOpen ? "inline-block" : "none", position: "fixed" }, children: jsxRuntime.jsx("div", { className: dialogContentStyle, children: "zdvs" }) }));
+const Prompt = ({ isOpen, closeModal }) => {
+    const modalRef = React.useRef(null);
+    const handleClickOutside = (event) => {
+        if (modalRef.current && !modalRef.current?.contains(event.target)) {
+            closeModal();
+        }
+    };
+    React.useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [isOpen]);
+    const backdropStyle = "fixed top-0 left-0  !w-screen !h-screen bg-[#00000080] flex-row justify-center items-center";
+    const dialogContentStyle = "bg-white p-2 ";
+    return (jsxRuntime.jsx("div", { className: backdropStyle, ref: modalRef, style: {
+            display: isOpen ? "flex" : "none",
+        }, children: jsxRuntime.jsx("div", { className: dialogContentStyle, children: "zdvs" }) }));
 };
 
 exports.Button = Button;
