@@ -57,7 +57,7 @@ const SearchIcon = ({ fill }) => {
 };
 
 const SearchBar = ({ value, onChange, handleSearch, }) => {
-    return (jsxRuntime.jsxs("div", { className: "flex border border-grey flex-row justify-between p-2 rounded-lg items-center gap-2 bg-white ", children: [jsxRuntime.jsx("input", { value: value ?? "", className: "border-none w-full outline-none", onChange: (e) => {
+    return (jsxRuntime.jsxs("div", { className: "flex border border-red-100 flex-row justify-between p-2 rounded-lg items-center gap-2 bg-white hover:border-red-100 ", children: [jsxRuntime.jsx("input", { value: value ?? "", className: "border-none w-full outline-none", onChange: (e) => {
                     onChange(e);
                 } }), jsxRuntime.jsx("button", { onClick: handleSearch, type: "submit", children: jsxRuntime.jsx(SearchIcon, {}) })] }));
 };
