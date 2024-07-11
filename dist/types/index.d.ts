@@ -19,6 +19,7 @@ declare const SearchBar: React.FC<SearchBarProps>;
 interface ModalProps {
     isOpen: boolean;
     closeModal: () => void;
+    title: string;
 }
 declare const Prompt: React.FC<ModalProps>;
 

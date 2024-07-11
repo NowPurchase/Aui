@@ -30,9 +30,10 @@ export default {
 
 export const Prompt1 = {
   args: {
-    isOpen: true,
     // children: "Submit",
     // variant: "default",
     // disabled: true,
+    isOpen: true,
+    title:"Success"
   },
 };

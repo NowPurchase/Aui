@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+const config = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
@@ -7,7 +7,7 @@ export default {
   theme: {
     colors: {
       red: {
-        100: "#E43E2B100",
+        100: "#E43E2B",
         80: "#E43E2B80",
         60: "#E43E2B8060",
         40: "#E43E2B80",
@@ -22,6 +22,14 @@ export default {
         20: "#D0E4F2",
         10: "#E8F2F8",
       },
+      green: {
+        100: "#2BA24C",
+        80: "#2BA24C80",
+        60: "#2BA24C60",
+        40: "#2BA24C40",
+        20: "#2BA24C20",
+        10: "#2BA24C10",
+      },
       white: "#FFF",
       grey: "#AAAAAA",
     },
@@ -33,3 +41,5 @@ export default {
   },
   plugins: [],
 };
+
+export default config;

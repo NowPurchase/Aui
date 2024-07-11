@@ -4,9 +4,14 @@ import commonjs from "@rollup/plugin-commonjs";
 import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import packageJson from "./package.json" assert { type: "json" };
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import tailwindcss from "tailwindcss";
+
+import tailwindConfig from "./tailwind.config.mjs";
 
 export default [
   {
+    external: ["react", "react-dom", "react/jsx-runtime"],
     input: "src/index.ts",
     output: [
       {
@@ -21,6 +26,9 @@ export default [
       },
     ],
     plugins: [
+      peerDepsExternal({
+        packageJsonPath: "package.json",
+      }),
       resolve({
         extensions: [".js", ".jsx", ".ts", ".tsx"],
         skip: ["react", "react-dom"],
@@ -39,9 +47,9 @@ export default [
         inject: {
           insertAt: "top",
         },
+        plugins: [tailwindcss(tailwindConfig)],
       }),
     ],
-    external: ["react", "react-dom", "react/jsx-runtime"],
   },
   {
     input: "dist/esm/types/index.d.ts",

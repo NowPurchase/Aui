@@ -15,5 +15,6 @@ export default _default;
 export declare const Prompt1: {
     args: {
         isOpen: boolean;
+        title: string;
     };
 };
