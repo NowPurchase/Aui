@@ -1,6 +1,6 @@
-import type { StorybookConfig } from "@storybook/react-vite";
+import path from "path";
 
-const config: StorybookConfig = {
+const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-onboarding",
@@ -12,6 +12,24 @@ const config: StorybookConfig = {
   framework: {
     name: "@storybook/react-vite",
     options: {},
+  },
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: ["style-loader", "css-loader", "sass-loader"],
+      include: path.resolve(__dirname, "../"),
+    });
+
+    config.module.rules.push({
+      test: /\.(ts|tsx)$/,
+      loader: require.resolve("babel-loader"),
+      options: {
+        presets: [["react-app", { flow: false, typescript: true }]],
+      },
+    });
+    config.resolve.extensions.push(".ts", ".tsx");
+
+    return config;
   },
 };
 export default config;
