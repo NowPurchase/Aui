@@ -1,5 +1,6 @@
 import React from "react";
-export type Variants = "primary" | "outlined" | "secondary" | "teriary2" | "disabled";
+import "./style.scss";
+export type Variants = "primary" | "outlined" | "secondary" | "teriary2";
 export interface Props {
     children: React.ReactNode;
     variant?: Variants;

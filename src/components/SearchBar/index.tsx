@@ -13,7 +13,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
   handleSearch,
 }) => {
   return (
-    <div className="flex border border-red-100 flex-row justify-between p-2 rounded-lg items-center gap-2 bg-white hover:border-red-100 ">
+    <div className="flex border border-grey flex-row justify-between p-2 rounded-lg items-center gap-2 bg-white hover:bg-blue-100 ">
       <input
         value={value ?? ""}
         className="border-none w-full outline-none"

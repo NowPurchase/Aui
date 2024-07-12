@@ -27,7 +27,7 @@ export default {
 export const Button1 = {
   args: {
     children: "Submit",
-    variant: "default",
+    variant: "disabled",
     disabled: true,
   },
 };

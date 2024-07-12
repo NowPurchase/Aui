@@ -1,0 +1,66 @@
+@use '../../variables' as v;
+
+.btn{
+    background-color: v.$blue-100;
+    border:none;
+    width:100%;
+    border-radius:4px;
+    cursor: pointer;
+    padding: 11px 10px;
+
+    &.primary{
+        background-color: v.$blue-100;
+        font-weight: v.$font-weight-bold;
+        color:v.$white;
+        
+        &:hover {
+                box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.20);
+        }
+        &:active{
+            box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.40) inset;
+        }
+
+    }
+
+    &.secondary {
+        background-color: v.$blue-10;
+        border: 1px solid v.$blue-100;
+        font-weight: v.$font-weight-bold;
+        &:hover{
+            box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.20);
+        }
+        &:active{
+            box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.20) inset;
+        }
+    }
+
+    &.outlined {
+        background-color: transparent;
+        color: v.$blue-100;
+        border: 1px solid v.$blue-100;
+        font-weight: v.$font-weight-bold;
+        &:hover{
+            box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.20);
+        }
+        &:active{
+            box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.40) inset;
+        }
+    }
+
+    &:disabled{
+        background-color: v.$grey-60;
+        border:none;
+        outline:none;
+        box-shadow: none;
+        transform: none;
+        
+            &:hover,
+            &:active {
+                box-shadow: none;
+                transform: none;
+            }
+    }
+    
+   
+}
+

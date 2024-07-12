@@ -1,2 +1,3 @@
-declare const Success: () => import("react/jsx-runtime").JSX.Element;
+import React from "react";
+declare const Success: () => React.JSX.Element;
 export default Success;

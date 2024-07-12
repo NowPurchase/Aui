@@ -1,11 +1,11 @@
 import React from "react";
+import "./style.scss";
 
 export type Variants =
   | "primary"
   | "outlined"
   | "secondary"
-  | "teriary2"
-  | "disabled";
+  | "teriary2";
 
 export interface Props {
   children: React.ReactNode;
@@ -20,26 +20,10 @@ const Button: React.FC<Props> = ({
   disabled = false,
   onClick,
 }) => {
-  const buttonStyle = () => {
-    if (disabled) {
-      return "bg-grey text-white cursor-not-allowed";
-    }
-    switch (variant) {
-      case "primary":
-        return "bg-blue-100 text-white cursor-pointer";
-      case "outlined":
-        return "bg-transparent text-blue-100 border border-blue-100 cursor-pointer";
-      case "secondary":
-        return "bg-blue-20 text-blue-100 border border-blue-100 cursor-pointer ";
-      default:
-        return "bg-blue-100 text-white cursor-pointer";
-    }
-  };
-
   return (
     <button
       disabled={disabled}
-      className={`p-2 w-full rounded-normal ${buttonStyle()} font-medium `}
+      className={`btn ${variant}`}
       onClick={onClick}
     >
       {children}

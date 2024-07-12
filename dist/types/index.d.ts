@@ -1,6 +1,6 @@
 import React from 'react';
 
-type Variants = "primary" | "outlined" | "secondary" | "teriary2" | "disabled";
+type Variants = "primary" | "outlined" | "secondary" | "teriary2";
 interface Props {
     children: React.ReactNode;
     variant?: Variants;
