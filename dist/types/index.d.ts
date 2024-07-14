@@ -1,13 +1,13 @@
 import React from 'react';
 
 type Variants = "primary" | "outlined" | "secondary" | "teriary2";
-interface Props {
+interface Props$1 {
     children: React.ReactNode;
     variant?: Variants;
     disabled?: boolean;
-    onClick: (param: unknown) => void;
+    onClick: (param?: unknown) => void;
 }
-declare const Button: React.FC<Props>;
+declare const Button: React.FC<Props$1>;
 
 interface SearchBarProps {
     value: string;
@@ -23,4 +23,14 @@ interface ModalProps {
 }
 declare const Prompt: React.FC<ModalProps>;
 
-export { Button, Prompt, SearchBar };
+interface Props {
+    value: string;
+    label: string;
+    placeholderText?: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    isError: boolean;
+    errorTxt?: string;
+}
+declare const Input: ({ isError, placeholderText, onChange, label, value, errorTxt, }: Props) => React.JSX.Element;
+
+export { Button, Input, Prompt, SearchBar };

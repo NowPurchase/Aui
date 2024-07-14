@@ -1,0 +1,103 @@
+// Variables
+
+
+
+$guidance-color: #8e44ad;
+$border-radius: 4px;
+$transition-duration: 0.3s;
+
+@use '../../variables' as v;
+
+// Input styles
+input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: $border-radius;
+  transition: border-color $transition-duration, box-shadow $transition-duration;
+   width:100%;
+  // Default state
+  &:focus {
+    border-color: v.$blue-100;
+    box-shadow: 0 0 5px rgba(v.$blue-100, 0.5);
+    outline: none;
+  }
+
+  // Placeholder styles
+  &::placeholder {
+    color: #aaa;
+    transition: color $transition-duration;
+  }
+
+  // Hover state
+  &:hover {
+    border-color: darken(v.$grey-80, 10%);
+  }
+
+  // Disabled state
+  &:disabled {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+    cursor: not-allowed;
+  }
+
+  // Read-only state
+  &:read-only {
+    background-color: #fafafa;
+    border-color: #eee;
+    color: #888;
+  }
+
+  // Invalid state
+  &.is-invalid {
+    border-color: v.$red-80;
+    box-shadow: 0 0 5px rgba(v.$red-80, 0.5);
+  }
+
+  // Valid state
+  &.is-valid {
+    border-color: v.$green-100;
+    box-shadow: 0 0 5px rgba(v.$green-100, 0.5);
+  }
+}
+
+// Guidance message styles
+.guidance-message {
+  font-size: 0.875rem;
+  color: $guidance-color;
+  margin-top: 0.25rem;
+}
+
+// Error message styles
+.error-message {
+  font-size: 0.875rem;
+  color: v.$red-80;
+  margin-top: 0.25rem;
+  visibility: hidden;
+
+  // Show feedback when input is invalid
+  .is-invalid + & {
+    visibility: visible;
+  }
+}
+
+// Form group for better structure
+.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333;
+  }
+
+  .input-feedback {
+    font-size: 0.875rem;
+    color: v.$red-80;
+    visibility: hidden;
+
+    // Show feedback when input is invalid
+    .is-invalid + & {
+      visibility: visible;
+    }
+  }
+}

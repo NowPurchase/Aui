@@ -6,7 +6,7 @@ function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
   var insertAt = ref.insertAt;
 
-  if (typeof document === 'undefined') { return; }
+  if (!css || typeof document === 'undefined') { return; }
 
   var head = document.head || document.getElementsByTagName('head')[0];
   var style = document.createElement('style');
@@ -29,8 +29,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z = ".btn {\n  background-color: #1579BE;\n  border: none;\n  width: 100%;\n  border-radius: 4px;\n  cursor: pointer;\n  padding: 11px 10px;\n}\n.btn.primary {\n  background-color: #1579BE;\n  font-weight: 700;\n  color: #fff;\n}\n.btn.primary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.primary:active {\n  box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;\n}\n.btn.secondary {\n  background-color: #E8F2F8;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.secondary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.secondary:active {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;\n}\n.btn.outlined {\n  background-color: transparent;\n  color: #1579BE;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.outlined:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.outlined:active {\n  box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;\n}\n.btn:disabled {\n  background-color: #AAAAAA;\n  border: none;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}";
-styleInject(css_248z);
+var css_248z$1 = ".btn {\n  background-color: #1579BE;\n  border: none;\n  width: 100%;\n  border-radius: 4px;\n  cursor: pointer;\n  padding: 11px 10px;\n}\n.btn.primary {\n  background-color: #1579BE;\n  font-weight: 700;\n  color: #fff;\n}\n.btn.primary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.primary:active {\n  box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;\n}\n.btn.secondary {\n  background-color: #E8F2F8;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.secondary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.secondary:active {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;\n}\n.btn.outlined {\n  background-color: transparent;\n  color: #1579BE;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.outlined:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.outlined:active {\n  box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;\n}\n.btn:disabled {\n  background-color: #AAAAAA;\n  border: none;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}";
+styleInject(css_248z$1);
 
 const Button = ({ children, variant = "primary", disabled = false, onClick, }) => {
     return (React.createElement("button", { disabled: disabled, className: `btn ${variant}`, onClick: onClick }, children));
@@ -84,7 +84,18 @@ const Prompt = ({ isOpen, closeModal, title }) => {
                 React.createElement("div", { className: "text-green-100 font-semibold text-xl" }, title)))));
 };
 
+var css_248z = "input {\n  padding: 0.5rem;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  transition: border-color 0.3s, box-shadow 0.3s;\n  width: 100%;\n}\ninput:focus {\n  border-color: #1579BE;\n  box-shadow: 0 0 5px rgba(21, 121, 190, 0.5);\n  outline: none;\n}\ninput::placeholder {\n  color: #aaa;\n  transition: color 0.3s;\n}\ninput:hover {\n  border-color: #474747;\n}\ninput:disabled {\n  background-color: #f5f5f5;\n  border-color: #ddd;\n  cursor: not-allowed;\n}\ninput:read-only {\n  background-color: #fafafa;\n  border-color: #eee;\n  color: #888;\n}\ninput.is-invalid {\n  border-color: #E86A58;\n  box-shadow: 0 0 5px rgba(232, 106, 88, 0.5);\n}\ninput.is-valid {\n  border-color: #2BA24C;\n  box-shadow: 0 0 5px rgba(43, 162, 76, 0.5);\n}\n\n.guidance-message {\n  font-size: 0.875rem;\n  color: #8e44ad;\n  margin-top: 0.25rem;\n}\n\n.error-message {\n  font-size: 0.875rem;\n  color: #E86A58;\n  margin-top: 0.25rem;\n  visibility: hidden;\n}\n.is-invalid + .error-message {\n  visibility: visible;\n}\n\n.form-group {\n  margin-bottom: 1rem;\n}\n.form-group label {\n  display: block;\n  margin-bottom: 0.5rem;\n  color: #333;\n}\n.form-group .input-feedback {\n  font-size: 0.875rem;\n  color: #E86A58;\n  visibility: hidden;\n}\n.is-invalid + .form-group .input-feedback {\n  visibility: visible;\n}";
+styleInject(css_248z);
+
+const Input = ({ isError, placeholderText, onChange, label, value, errorTxt, }) => {
+    return (React.createElement("div", { className: "form-group" },
+        React.createElement("label", { htmlFor: "exampleInput" }, label),
+        React.createElement("input", { value: value, type: "text", id: "exampleInput", className: isError ? "is-invalid" : "", placeholder: placeholderText ?? "", onChange: (e) => onChange(e) }),
+        isError && React.createElement("div", { className: "error-message" }, errorTxt ?? "")));
+};
+
 exports.Button = Button;
+exports.Input = Input;
 exports.Prompt = Prompt;
 exports.SearchBar = SearchBar;
 //# sourceMappingURL=index.js.map
