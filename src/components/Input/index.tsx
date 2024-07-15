@@ -65,7 +65,7 @@ const Input = ({
       <div
         className={`input-container ${isFocused ? "focused" : ""} ${
           isError ? "error" : ""
-        }`}
+        } ${disabled ? "disabled" : ""}`}
       >
         {prefix && <span>{prefix}</span>}
         <input

@@ -82,7 +82,7 @@ const Prompt = ({ isOpen, closeModal, title }) => {
                 React.createElement("div", { className: "text-green-100 font-semibold text-xl" }, title)))));
 };
 
-var css_248z = ".input-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100%;\n}\n\n.input-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0.5rem;\n  background-color: #fff;\n  border: 1px solid #AAAAAA;\n  border-radius: 4px;\n  transition: border-color 0.3s;\n}\n.input-container input[type=number]::-webkit-inner-spin-button,\n.input-container input[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.input-container.focused {\n  border-color: #1579BE;\n}\n.input-container.error {\n  border-color: #ff0000;\n}\n.input-container:hover {\n  border-color: #4494CB;\n}\n.input-container input {\n  border: none;\n  background: none;\n  color: #000000;\n  width: 100%;\n}\n.input-container input:focus {\n  outline: none;\n  border: none;\n}\n\n.error-message {\n  color: #ff0000;\n  margin-top: 5px;\n  font-size: 1rem;\n}";
+var css_248z = ".input-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100%;\n}\n\n.input-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0.5rem;\n  background-color: #fff;\n  border: 1px solid #AAAAAA;\n  border-radius: 4px;\n  transition: border-color 0.3s;\n}\n.input-container input[type=number]::-webkit-inner-spin-button,\n.input-container input[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.input-container.focused {\n  border-color: #1579BE;\n}\n.input-container.error {\n  border-color: #ff0000;\n}\n.input-container:hover {\n  border-color: #4494CB;\n}\n.input-container.disabled {\n  background-color: #F0F0F0;\n  border-color: #ddd;\n  cursor: not-allowed;\n}\n.input-container input {\n  border: none;\n  background: none;\n  color: #000000;\n  width: 100%;\n}\n.input-container input:focus {\n  outline: none;\n  border: none;\n}\n\n.error-message {\n  color: #ff0000;\n  margin-top: 5px;\n  font-size: 1rem;\n}";
 styleInject(css_248z);
 
 const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg, name, required = false, readOnly = false, disabled = false, prefix, suffix, inputStyles, }) => {
@@ -113,7 +113,7 @@ const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg,
     //   {isError && <div className="error-message">{errorTxt ?? ""}</div>}
     // </div>
     React.createElement("div", { className: "input-wrapper" },
-        React.createElement("div", { className: `input-container ${isFocused ? "focused" : ""} ${isError ? "error" : ""}` },
+        React.createElement("div", { className: `input-container ${isFocused ? "focused" : ""} ${isError ? "error" : ""} ${disabled ? "disabled" : ""}` },
             prefix && React.createElement("span", null, prefix),
             React.createElement("input", { type: type, disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e), onFocus: handleFocus, onBlur: handleBlur, style: inputStyles }),
             suffix && React.createElement("span", { className: "unit" }, suffix)),

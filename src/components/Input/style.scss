@@ -154,6 +154,12 @@ $error-message-color: #ff0000;
     border-color: v.$blue-80;
   }
 
+  &.disabled {
+    background-color: v.$grey-40;
+    border-color: #ddd;
+    cursor: not-allowed;
+  }
+
   input {
     border: none;
     background: none;
@@ -163,6 +169,11 @@ $error-message-color: #ff0000;
       outline: none;
       border: none;
     }
+    // &:disabled {
+    //   background-color: #f5f5f5;
+    //   border-color: #ddd;
+    //   cursor: not-allowed;
+    // }
   }
 
   // .unit {
