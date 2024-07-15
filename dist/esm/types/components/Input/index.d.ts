@@ -2,11 +2,15 @@ import React from "react";
 import "./style.scss";
 export interface Props {
     value: string;
-    label: string;
-    placeholderText?: string;
+    label?: string;
+    placeholder?: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isError: boolean;
     errorTxt?: string;
+    name?: string;
+    required?: boolean;
+    readOnly?: boolean;
+    disabled?: boolean;
 }
-declare const Input: ({ isError, placeholderText, onChange, label, value, errorTxt, }: Props) => React.JSX.Element;
+declare const Input: ({ isError, placeholder, onChange, label, value, errorTxt, name, required, readOnly, disabled, }: Props) => React.JSX.Element;
 export default Input;
