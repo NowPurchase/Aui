@@ -1,11 +1,13 @@
 import React from 'react';
 
 type Variants = "primary" | "outlined" | "secondary" | "teriary2";
+type ButtonTypes = "button" | "submit" | "reset";
 interface Props$1 {
     children: React.ReactNode;
     variant?: Variants;
     disabled?: boolean;
-    onClick: (param?: unknown) => void;
+    onClick: (e?: unknown) => void;
+    type?: ButtonTypes;
 }
 declare const Button: React.FC<Props$1>;
 

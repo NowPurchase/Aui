@@ -2,12 +2,14 @@ import React from "react";
 import "./style.scss";
 
 export type Variants = "primary" | "outlined" | "secondary" | "teriary2";
+export type ButtonTypes = "button" | "submit" | "reset";
 
 export interface Props {
   children: React.ReactNode;
   variant?: Variants;
   disabled?: boolean;
-  onClick: (param?: unknown) => void;
+  onClick: (e?: unknown) => void;
+  type?: ButtonTypes;
 }
 
 const Button: React.FC<Props> = ({
@@ -15,9 +17,15 @@ const Button: React.FC<Props> = ({
   variant = "primary",
   disabled = false,
   onClick,
+  type,
 }) => {
   return (
-    <button disabled={disabled} className={`btn ${variant}`} onClick={onClick}>
+    <button
+      disabled={disabled}
+      className={`btn ${variant}`}
+      onClick={onClick}
+      type={type ?? "button"}
+    >
       {children}
     </button>
   );
