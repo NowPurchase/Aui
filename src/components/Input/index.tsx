@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 
 export interface Props {
@@ -10,6 +10,8 @@ export interface Props {
   errorTxt?: string;
   name?: string;
   required?: boolean;
+  readOnly?: boolean;
+  disabled?: boolean;
 }
 
 const Input = ({
@@ -21,17 +23,30 @@ const Input = ({
   errorTxt,
   name,
   required = false,
+  readOnly = false,
+  disabled = false,
 }: Props) => {
+  const [isFocused, setIsFocused] = useState(false);
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+    validateInput();
+  };
   return (
     <div className="form-group">
       {label && <label htmlFor="exampleInput">{label}</label>}
       <input
+        disabled={disabled}
+        readOnly={readOnly ?? undefined}
         required={required}
         value={value}
         name={name ?? undefined}
         type="text"
         id="exampleInput"
-        className={isError ? "is-invalid" : ""}
+        className={`${isError ? "is-invalid" : ""}`}
         placeholder={placeholder ?? ""}
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
       />

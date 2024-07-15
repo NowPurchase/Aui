@@ -34,7 +34,9 @@ interface Props {
     errorTxt?: string;
     name?: string;
     required?: boolean;
+    readOnly?: boolean;
+    disabled?: boolean;
 }
-declare const Input: ({ isError, placeholder, onChange, label, value, errorTxt, name, required, }: Props) => React.JSX.Element;
+declare const Input: ({ isError, placeholder, onChange, label, value, errorTxt, name, required, readOnly, disabled, }: Props) => React.JSX.Element;
 
 export { Button, Input, Prompt, SearchBar };
