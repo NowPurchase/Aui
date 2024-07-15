@@ -33,7 +33,6 @@ const Input = ({
 
   const handleBlur = () => {
     setIsFocused(false);
-    validateInput();
   };
   return (
     <div className="form-group">
