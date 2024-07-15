@@ -1,103 +1,179 @@
 // Variables
 
-
-
 $guidance-color: #8e44ad;
 $border-radius: 4px;
 $transition-duration: 0.3s;
 
-@use '../../variables' as v;
+@use "../../variables" as v;
 
 // Input styles
-input {
+// input {
+//   padding: 0.5rem;
+//   border: 1px solid #ccc;
+//   border-radius: $border-radius;
+//   transition: border-color $transition-duration, box-shadow $transition-duration;
+//    width:100%;
+//   // Default state
+//   &:focus {
+//     border-color: v.$blue-100;
+//     box-shadow: 0 0 5px rgba(v.$blue-100, 0.5);
+//     outline: none;
+//   }
+
+//   // Placeholder styles
+//   &::placeholder {
+//     color: #aaa;
+//     transition: color $transition-duration;
+//   }
+
+//   // Hover state
+//   &:hover {
+//     border-color: darken(v.$grey-80, 10%);
+//   }
+
+//   // Disabled state
+//   &:disabled {
+//     background-color: #f5f5f5;
+//     border-color: #ddd;
+//     cursor: not-allowed;
+//   }
+
+//   // Read-only state
+//   &:read-only {
+//     background-color: #fafafa;
+//     border-color: #eee;
+//     color: #888;
+//   }
+
+//   // Invalid state
+//   &.is-invalid {
+//     border-color: v.$red-80;
+//     box-shadow: 0 0 5px rgba(v.$red-80, 0.5);
+//   }
+
+//   // Valid state
+//   &.is-valid {
+//     border-color: v.$green-100;
+//     box-shadow: 0 0 5px rgba(v.$green-100, 0.5);
+//   }
+// }
+
+// // Guidance message styles
+// .guidance-message {
+//   font-size: 0.875rem;
+//   color: $guidance-color;
+//   margin-top: 0.25rem;
+// }
+
+// // Error message styles
+// .error-message {
+//   font-size: 0.875rem;
+//   color: v.$red-80;
+//   margin-top: 0.25rem;
+//   visibility: hidden;
+
+//   // Show feedback when input is invalid
+//   .is-invalid + & {
+//     visibility: visible;
+//   }
+// }
+
+// // Form group for better structure
+// .form-group {
+//   // margin-bottom: 1rem;
+
+//   label {
+//     display: block;
+//     margin-bottom: 0.5rem;
+//     color: #333;
+//   }
+
+//   .input-feedback {
+//     font-size: 0.875rem;
+//     color: v.$red-80;
+//     visibility: hidden;
+
+//     // Show feedback when input is invalid
+//     .is-invalid + & {
+//       visibility: visible;
+//     }
+//   }
+// }
+
+// -------------------------------------
+
+$border-radius: 10px;
+$border-color: #ccc;
+$background-color: #333;
+$input-font-size: 2rem;
+$input-font-weight: bold;
+$unit-font-weight: normal;
+$error-color: #ff0000;
+$focus-color: #00ff00;
+$hover-color: #007bff;
+$error-message-color: #ff0000;
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; // Adjust as needed
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: $border-radius;
-  transition: border-color $transition-duration, box-shadow $transition-duration;
-   width:100%;
-  // Default state
-  &:focus {
+  background-color: v.$white;
+  border: 1px solid v.$grey-60;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+
+  // Disable number input spinner
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  // For Firefox
+
+  &.focused {
     border-color: v.$blue-100;
-    box-shadow: 0 0 5px rgba(v.$blue-100, 0.5);
-    outline: none;
+    // border:none
   }
 
-  // Placeholder styles
-  &::placeholder {
-    color: #aaa;
-    transition: color $transition-duration;
+  &.error {
+    border-color: $error-color;
   }
 
-  // Hover state
   &:hover {
-    border-color: darken(v.$grey-80, 10%);
+    border-color: v.$blue-80;
   }
 
-  // Disabled state
-  &:disabled {
-    background-color: #f5f5f5;
-    border-color: #ddd;
-    cursor: not-allowed;
-  }
-
-  // Read-only state
-  &:read-only {
-    background-color: #fafafa;
-    border-color: #eee;
-    color: #888;
-  }
-
-  // Invalid state
-  &.is-invalid {
-    border-color: v.$red-80;
-    box-shadow: 0 0 5px rgba(v.$red-80, 0.5);
-  }
-
-  // Valid state
-  &.is-valid {
-    border-color: v.$green-100;
-    box-shadow: 0 0 5px rgba(v.$green-100, 0.5);
-  }
-}
-
-// Guidance message styles
-.guidance-message {
-  font-size: 0.875rem;
-  color: $guidance-color;
-  margin-top: 0.25rem;
-}
-
-// Error message styles
-.error-message {
-  font-size: 0.875rem;
-  color: v.$red-80;
-  margin-top: 0.25rem;
-  visibility: hidden;
-
-  // Show feedback when input is invalid
-  .is-invalid + & {
-    visibility: visible;
-  }
-}
-
-// Form group for better structure
-.form-group {
-  // margin-bottom: 1rem;
-
-  label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #333;
-  }
-
-  .input-feedback {
-    font-size: 0.875rem;
-    color: v.$red-80;
-    visibility: hidden;
-
-    // Show feedback when input is invalid
-    .is-invalid + & {
-      visibility: visible;
+  input {
+    border: none;
+    background: none;
+    color: v.$grey-100;
+    width: 100%;
+    &:focus {
+      outline: none;
+      border: none;
     }
   }
+
+  // .unit {
+  //   color: v.$grey;
+  //   font-size: v.$font-size-small;
+  //   font-weight: v.$font-weight-medium;
+  // }
+}
+
+.error-message {
+  color: $error-message-color;
+  margin-top: 5px;
+  font-size: 1rem;
 }

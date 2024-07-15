@@ -82,15 +82,42 @@ const Prompt = ({ isOpen, closeModal, title }) => {
                 React.createElement("div", { className: "text-green-100 font-semibold text-xl" }, title)))));
 };
 
-var css_248z = "input {\n  padding: 0.5rem;\n  border: 1px solid #ccc;\n  border-radius: 4px;\n  transition: border-color 0.3s, box-shadow 0.3s;\n  width: 100%;\n}\ninput:focus {\n  border-color: #1579BE;\n  box-shadow: 0 0 5px rgba(21, 121, 190, 0.5);\n  outline: none;\n}\ninput::placeholder {\n  color: #aaa;\n  transition: color 0.3s;\n}\ninput:hover {\n  border-color: #474747;\n}\ninput:disabled {\n  background-color: #f5f5f5;\n  border-color: #ddd;\n  cursor: not-allowed;\n}\ninput:read-only {\n  background-color: #fafafa;\n  border-color: #eee;\n  color: #888;\n}\ninput.is-invalid {\n  border-color: #E86A58;\n  box-shadow: 0 0 5px rgba(232, 106, 88, 0.5);\n}\ninput.is-valid {\n  border-color: #2BA24C;\n  box-shadow: 0 0 5px rgba(43, 162, 76, 0.5);\n}\n\n.guidance-message {\n  font-size: 0.875rem;\n  color: #8e44ad;\n  margin-top: 0.25rem;\n}\n\n.error-message {\n  font-size: 0.875rem;\n  color: #E86A58;\n  margin-top: 0.25rem;\n  visibility: hidden;\n}\n.is-invalid + .error-message {\n  visibility: visible;\n}\n\n.form-group label {\n  display: block;\n  margin-bottom: 0.5rem;\n  color: #333;\n}\n.form-group .input-feedback {\n  font-size: 0.875rem;\n  color: #E86A58;\n  visibility: hidden;\n}\n.is-invalid + .form-group .input-feedback {\n  visibility: visible;\n}";
+var css_248z = ".input-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100%;\n}\n\n.input-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0.5rem;\n  background-color: #fff;\n  border: 1px solid #AAAAAA;\n  border-radius: 4px;\n  transition: border-color 0.3s;\n}\n.input-container input[type=number]::-webkit-inner-spin-button,\n.input-container input[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.input-container.focused {\n  border-color: #1579BE;\n}\n.input-container.error {\n  border-color: #ff0000;\n}\n.input-container:hover {\n  border-color: #4494CB;\n}\n.input-container input {\n  border: none;\n  background: none;\n  color: #000000;\n  width: 100%;\n}\n.input-container input:focus {\n  outline: none;\n  border: none;\n}\n\n.error-message {\n  color: #ff0000;\n  margin-top: 5px;\n  font-size: 1rem;\n}";
 styleInject(css_248z);
 
-const Input = ({ isError, placeholder, onChange, label, value, errorTxt, name, required = false, readOnly = false, disabled = false, }) => {
-    useState(false);
-    return (React.createElement("div", { className: "form-group" },
-        label && React.createElement("label", { htmlFor: "exampleInput" }, label),
-        React.createElement("input", { disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, type: "text", id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e) }),
-        isError && React.createElement("div", { className: "error-message" }, errorTxt ?? "")));
+const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg, name, required = false, readOnly = false, disabled = false, prefix, suffix, inputStyles, }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+    return (
+    // <div className="form-group">
+    //   {label && <label htmlFor="exampleInput">{label}</label>}
+    //   <input
+    //     disabled={disabled}
+    //     readOnly={readOnly ?? undefined}
+    //     required={required}
+    //     value={value}
+    //     name={name ?? undefined}
+    //     type="text"
+    //     id="exampleInput"
+    //     className={`${isError ? "is-invalid" : ""}`}
+    //     placeholder={placeholder ?? ""}
+    //     onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
+    //     onFocus={handleFocus}
+    //     onBlur={handleBlur}
+    //   />
+    //   {isError && <div className="error-message">{errorTxt ?? ""}</div>}
+    // </div>
+    React.createElement("div", { className: "input-wrapper" },
+        React.createElement("div", { className: `input-container ${isFocused ? "focused" : ""} ${isError ? "error" : ""}` },
+            prefix && React.createElement("span", null, prefix),
+            React.createElement("input", { type: type, disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e), onFocus: handleFocus, onBlur: handleBlur, style: inputStyles }),
+            suffix && React.createElement("span", { className: "unit" }, suffix)),
+        isError && React.createElement("div", { className: "error-message" }, errorMsg)));
 };
 
 export { Button, Input, Prompt, SearchBar };
