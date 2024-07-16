@@ -29,8 +29,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$1 = ".btn {\n  background-color: #1579BE;\n  border: none;\n  width: 100%;\n  border-radius: 4px;\n  cursor: pointer;\n  padding: 11px 10px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.btn.primary {\n  background-color: #1579BE;\n  font-weight: 700;\n  color: #fff;\n}\n.btn.primary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.primary:active {\n  box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;\n}\n.btn.secondary {\n  background-color: #E8F2F8;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n  color: #1579BE;\n}\n.btn.secondary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.secondary:active {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;\n}\n.btn.outlined {\n  background-color: transparent;\n  color: #1579BE;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.outlined:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.outlined:active {\n  box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;\n}\n.btn:disabled {\n  background-color: #AAAAAA;\n  border: none;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n  color: #fff;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}";
-styleInject(css_248z$1);
+var css_248z$2 = ".btn {\n  background-color: #1579BE;\n  border: none;\n  width: 100%;\n  border-radius: 4px;\n  cursor: pointer;\n  padding: 11px 10px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n.btn.primary {\n  background-color: #1579BE;\n  font-weight: 700;\n  color: #fff;\n}\n.btn.primary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.primary:active {\n  box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;\n}\n.btn.secondary {\n  background-color: #E8F2F8;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n  color: #1579BE;\n}\n.btn.secondary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.secondary:active {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;\n}\n.btn.outlined {\n  background-color: transparent;\n  color: #1579BE;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.outlined:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.outlined:active {\n  box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;\n}\n.btn:disabled {\n  background-color: #AAAAAA;\n  border: none;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n  color: #fff;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}";
+styleInject(css_248z$2);
 
 const Button = ({ children, variant = "primary", disabled = false, onClick, type, }) => {
     return (React.createElement("button", { disabled: disabled, className: `btn ${variant}`, onClick: onClick, type: type ?? "button" }, children));
@@ -59,11 +59,14 @@ const Success = () => {
         React.createElement("path", { d: "M17.0002 33.6668C7.79516 33.6668 0.333496 26.2052 0.333496 17.0002C0.333496 7.79516 7.79516 0.333496 17.0002 0.333496C26.2052 0.333496 33.6668 7.79516 33.6668 17.0002C33.6668 26.2052 26.2052 33.6668 17.0002 33.6668ZM17.0002 30.3335C20.5364 30.3335 23.9278 28.9287 26.4283 26.4283C28.9287 23.9278 30.3335 20.5364 30.3335 17.0002C30.3335 13.4639 28.9287 10.0726 26.4283 7.57207C23.9278 5.07159 20.5364 3.66683 17.0002 3.66683C13.4639 3.66683 10.0726 5.07159 7.57207 7.57207C5.07159 10.0726 3.66683 13.4639 3.66683 17.0002C3.66683 20.5364 5.07159 23.9278 7.57207 26.4283C10.0726 28.9287 13.4639 30.3335 17.0002 30.3335ZM15.3385 23.6668L8.26683 16.5952L10.6235 14.2385L15.3385 18.9535L24.7652 9.52516L27.1235 11.8818L15.3385 23.6668Z", fill: "#2BA24C" })));
 };
 
-const Prompt = ({ isOpen, closeModal, title }) => {
+var css_248z$1 = ".backdrop {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.5019607843);\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n}\n\n.dialogContent {\n  background-color: #fff;\n  padding: 1rem;\n  min-width: 500px;\n  min-height: 200px;\n  border-radius: 4px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.dialogContent .title_container {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  gap: 0.5rem;\n}\n.dialogContent .title_container .title {\n  font-size: 1.25rem;\n  color: #2BA24C;\n  font-weight: 700;\n}\n.dialogContent .footer {\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  gap: 0.8rem;\n}\n.dialogContent .footer .btn_div {\n  width: 100px;\n}";
+styleInject(css_248z$1);
+
+const Prompt = ({ isOpen, title, children, onClose, onSuccess, cancellable, }) => {
     const modalRef = React.useRef(null);
     const handleClickOutside = (event) => {
         if (modalRef.current && !modalRef.current?.contains(event.target)) {
-            closeModal();
+            onClose();
         }
     };
     React.useEffect(() => {
@@ -71,17 +74,22 @@ const Prompt = ({ isOpen, closeModal, title }) => {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [isOpen, modalRef]);
-    const backdropStyle = "fixed top-0 left-0  !w-screen !h-screen bg-[#00000080] flex-row justify-center items-center";
-    const dialogContentStyle = "bg-white p-2 min-w-[500px] min-h-[200px] rounded";
-    return (React.createElement("div", { className: backdropStyle, ref: modalRef, style: {
+    }, [isOpen]);
+    return (React.createElement("div", { className: "backdrop", style: {
             display: isOpen ? "flex" : "none",
         } },
-        React.createElement("div", { className: dialogContentStyle },
-            React.createElement("div", { className: "flex flex-row justify-start gap-1 items-center" },
-                React.createElement("div", null,
-                    React.createElement(Success, null)),
-                React.createElement("div", { className: "text-green-100 font-semibold text-xl" }, title)))));
+        React.createElement("div", { className: "dialogContent", ref: modalRef },
+            React.createElement("div", null,
+                React.createElement("div", { className: "title_container" },
+                    React.createElement("div", null,
+                        React.createElement(Success, null)),
+                    React.createElement("div", { className: "title" }, title)),
+                React.createElement("div", { className: "body" }, children)),
+            React.createElement("div", { className: "footer" },
+                cancellable && (React.createElement("div", { className: "btn_div" },
+                    React.createElement(Button, { onClick: onClose, variant: "secondary" }, "Cancel"))),
+                React.createElement("div", { className: "btn_div" },
+                    React.createElement(Button, { onClick: onSuccess }, "Success"))))));
 };
 
 var css_248z = ".input-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100%;\n}\n\n.input-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0.5rem;\n  background-color: #fff;\n  border: 1px solid #AAAAAA;\n  border-radius: 4px;\n  transition: border-color 0.3s;\n}\n.input-container input[type=number]::-webkit-inner-spin-button,\n.input-container input[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.input-container.focused {\n  border-color: #1579BE;\n}\n.input-container.error {\n  border-color: #ff0000;\n}\n.input-container:hover {\n  border-color: #4494CB;\n}\n.input-container.disabled {\n  background-color: #F0F0F0;\n  border-color: #ddd;\n  cursor: not-allowed;\n}\n.input-container input {\n  border: none;\n  background: none;\n  color: #000000;\n  width: 100%;\n}\n.input-container input:focus {\n  outline: none;\n  border: none;\n}\n\n.error-message {\n  color: #ff0000;\n  margin-top: 5px;\n  font-size: 1rem;\n}";

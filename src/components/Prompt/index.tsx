@@ -1,47 +1,72 @@
 import React, { useEffect, useRef } from "react";
 import Success from "../../images/Success";
+import "./style.scss";
+import Button from "components/Button";
 
 export interface ModalProps {
   isOpen: boolean;
-  closeModal: () => void;
   title: string;
+  children?: React.ReactNode;
+  onClose: () => void;
+  onSuccess: () => void | undefined;
+  cancellable?: boolean;
 }
 
-const Prompt: React.FC<ModalProps> = ({ isOpen, closeModal, title }) => {
+const Prompt: React.FC<ModalProps> = ({
+  isOpen,
+  title,
+  children,
+  onClose,
+  onSuccess,
+  cancellable,
+}) => {
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event: MouseEvent) => {
     if (modalRef.current && !modalRef.current?.contains(event.target as Node)) {
-      closeModal();
+      onClose();
     }
   };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isOpen, modalRef]);
+  }, [isOpen]);
 
-  const backdropStyle =
-    "fixed top-0 left-0  !w-screen !h-screen bg-[#00000080] flex-row justify-center items-center";
-  const dialogContentStyle = "bg-white p-2 min-w-[500px] min-h-[200px] rounded";
   return (
     <div
-      className={backdropStyle}
-      ref={modalRef}
+      className="backdrop"
       style={{
         display: isOpen ? "flex" : "none",
       }}
     >
-      <div className={dialogContentStyle}>
+      <div className="dialogContent" ref={modalRef}>
         {/* ------------- title -------------- */}
-        <div className="flex flex-row justify-start gap-1 items-center">
-          <div>
-            <Success />
+        <div>
+          <div className="title_container">
+            <div>
+              <Success />
+            </div>
+            <div className="title">{title}</div>
           </div>
-          <div className="text-green-100 font-semibold text-xl">{title}</div>
+          {/* ---------- body ------------  */}
+          <div className="body">{children}</div>
+        </div>
+
+        {/* ------------ footer -------------  */}
+        <div className="footer">
+          {cancellable && (
+            <div className="btn_div">
+              <Button onClick={onClose} variant="secondary">
+                Cancel
+              </Button>
+            </div>
+          )}
+          <div className="btn_div">
+            <Button onClick={onSuccess}>Success</Button>
+          </div>
         </div>
       </div>
     </div>

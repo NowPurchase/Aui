@@ -20,8 +20,11 @@ declare const SearchBar: React.FC<SearchBarProps>;
 
 interface ModalProps {
     isOpen: boolean;
-    closeModal: () => void;
     title: string;
+    children?: React.ReactNode;
+    onClose: () => void;
+    onSuccess: () => void | undefined;
+    cancellable?: boolean;
 }
 declare const Prompt: React.FC<ModalProps>;
 
