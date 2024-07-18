@@ -126,7 +126,7 @@ const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg,
         React.createElement("div", { className: `input-container ${isFocused ? "focused" : ""} ${isError ? "error" : ""} ${disabled ? "disabled" : ""}` },
             prefix && React.createElement("span", null, prefix),
             React.createElement("input", { type: type, disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e), onFocus: handleFocus, onBlur: handleBlur, style: inputStyles }),
-            suffix && React.createElement("span", { className: "unit" }, suffix)),
+            suffix && React.createElement("span", null, suffix)),
         isError && React.createElement("div", { className: "error-message" }, errorMsg)));
 };
 

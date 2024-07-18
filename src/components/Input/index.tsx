@@ -13,8 +13,8 @@ export interface Props {
   required?: boolean;
   readOnly?: boolean;
   disabled?: boolean;
-  prefix?: React.ReactNode | null;
-  suffix?: React.ReactNode | null;
+  prefix?: React.ReactNode;
+  suffix?: React.ReactNode;
   inputStyles?: Record<string, string>;
 }
 
@@ -83,7 +83,7 @@ const Input = ({
           onBlur={handleBlur}
           style={inputStyles}
         />
-        {suffix && <span className="unit">{suffix}</span>}
+        {suffix && <span>{suffix}</span>}
       </div>
       {isError && <div className="error-message">{errorMsg}</div>}
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import Success from "../../images/Success";
 import "./style.scss";
-import Button from "components/Button";
+import Button from "../Button";
 
 export interface ModalProps {
   isOpen: boolean;

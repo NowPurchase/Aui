@@ -40,8 +40,8 @@ interface Props {
     required?: boolean;
     readOnly?: boolean;
     disabled?: boolean;
-    prefix?: React.ReactNode | null;
-    suffix?: React.ReactNode | null;
+    prefix?: React.ReactNode;
+    suffix?: React.ReactNode;
     inputStyles?: Record<string, string>;
 }
 declare const Input: ({ isError, placeholder, onChange, type, value, errorMsg, name, required, readOnly, disabled, prefix, suffix, inputStyles, }: Props) => React.JSX.Element;
