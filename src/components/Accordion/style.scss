@@ -1,0 +1,39 @@
+@use "../../variables" as v;
+
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid v.$grey-70;
+}
+
+.accordion-title-container {
+  //   border: 1px solid v.$grey-70;
+  //   border-radius: 4px;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  //   &.open {
+  //     border-radius: 4px 4px 0 0;
+  //   }
+}
+
+.container {
+  background-color: v.$grey-40;
+  //   padding: 1rem;
+  border-radius: 0 0 4px 4px;
+  overflow: hidden;
+}
+
+.accordion-button {
+  button {
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+  }
+}
