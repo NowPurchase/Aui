@@ -6,7 +6,7 @@ import "./style.scss";
 export interface Props {
   title: React.ReactNode;
   children: React.ReactNode;
-  styles?: Record<"header" | "body", Record<string, string>>;
+  styles?: Record<"header" | "body" | "container", Record<string, string>>;
 }
 
 const Accordion = ({ title, children, styles }: Props) => {
@@ -15,7 +15,7 @@ const Accordion = ({ title, children, styles }: Props) => {
     setShowChild(!showChild);
   };
   return (
-    <div className="accordion-container">
+    <div className="accordion-container" style={styles?.container}>
       {/* ------- title -------  */}
       <div
         className="accordion-title-container"
@@ -31,7 +31,7 @@ const Accordion = ({ title, children, styles }: Props) => {
           transition={{ duration: 0.2 }}
         >
           <button onClick={handleCollapse}>
-            <RiArrowDownSLine />
+            <RiArrowDownSLine style={{ color: "#606060" }} />
           </button>
         </motion.div>
       </div>
@@ -46,7 +46,7 @@ const Accordion = ({ title, children, styles }: Props) => {
               opacity: 0,
               height: 0,
             }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.1, ease: "easeInOut" }}
             className="container"
           >
             <div style={{ borderRadius: "0 0 4px 4px", ...styles?.body }}>

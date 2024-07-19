@@ -10103,7 +10103,7 @@ const AnimatePresence = ({ children, custom, initial = true, onExitComplete, exi
             : childrenToRender.map((child) => t.cloneElement(child)) }));
 };
 
-var css_248z = ".accordion-container {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  border-radius: 4px;\n  border: 1px solid #909090;\n}\n\n.accordion-title-container {\n  padding: 0.5rem;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.container {\n  background-color: #F0F0F0;\n  border-radius: 0 0 4px 4px;\n  overflow: hidden;\n}\n\n.accordion-button button {\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
+var css_248z = ".accordion-container {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  border: 1px solid #909090;\n  overflow: hidden;\n}\n\n.accordion-title-container {\n  padding: 0.5rem;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.container {\n  background-color: #F0F0F0;\n  border-radius: 0 0 4px 4px;\n  overflow: hidden;\n}\n\n.accordion-button button {\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
 styleInject(css_248z);
 
 const Accordion = ({ title, children, styles }) => {
@@ -10111,16 +10111,16 @@ const Accordion = ({ title, children, styles }) => {
     const handleCollapse = () => {
         setShowChild(!showChild);
     };
-    return (t.createElement("div", { className: "accordion-container" },
+    return (t.createElement("div", { className: "accordion-container", style: styles?.container },
         t.createElement("div", { className: "accordion-title-container", onClick: handleCollapse, style: styles?.header },
             t.createElement("div", null, title),
             t.createElement(motion.div, { initial: "collapsed", exit: "collapsed", animate: { rotate: showChild ? 180 : 0 }, className: "accordion-button", transition: { duration: 0.2 } },
                 t.createElement("button", { onClick: handleCollapse },
-                    t.createElement(f1, null)))),
+                    t.createElement(f1, { style: { color: "#606060" } })))),
         t.createElement(AnimatePresence, null, showChild && (t.createElement(motion.div, { initial: { height: 0, opacity: 0 }, animate: { height: "auto", opacity: 1 }, exit: {
                 opacity: 0,
                 height: 0,
-            }, transition: { duration: 0.3 }, className: "container" },
+            }, transition: { duration: 0.1, ease: "easeInOut" }, className: "container" },
             t.createElement("div", { style: { borderRadius: "0 0 4px 4px", ...styles?.body } },
                 " ",
                 children))))));

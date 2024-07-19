@@ -49,7 +49,7 @@ declare const Input: ({ isError, placeholder, onChange, type, value, errorMsg, n
 interface Props {
     title: React.ReactNode;
     children: React.ReactNode;
-    styles?: Record<"header" | "body", Record<string, string>>;
+    styles?: Record<"header" | "body" | "container", Record<string, string>>;
 }
 declare const Accordion: ({ title, children, styles }: Props) => React.JSX.Element;
 
