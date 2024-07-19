@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RiArrowUpSLine } from "@remixicon/react";
+import { RiArrowDownSLine } from "@remixicon/react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./style.scss";
 
@@ -31,7 +31,7 @@ const Accordion = ({ title, children, styles }: Props) => {
           transition={{ duration: 0.2 }}
         >
           <button onClick={handleCollapse}>
-            <RiArrowUpSLine />
+            <RiArrowDownSLine />
           </button>
         </motion.div>
       </div>

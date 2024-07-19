@@ -154,7 +154,7 @@ const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg,
  * @remixicon/react v4.2.0 - Apache-2.0
  */
 
-const L2=({color:l="currentColor",size:e=24,className:C,...i})=>t.createElement("svg",{viewBox:"0 0 24 24",xmlns:"http://www.w3.org/2000/svg",width:e,height:e,fill:l,...i,className:"remixicon "+(C||"")},t.createElement("path",{d:"M11.9999 10.8284L7.0502 15.7782L5.63599 14.364L11.9999 8L18.3639 14.364L16.9497 15.7782L11.9999 10.8284Z"}));
+const f1=({color:l="currentColor",size:e=24,className:C,...i})=>t.createElement("svg",{viewBox:"0 0 24 24",xmlns:"http://www.w3.org/2000/svg",width:e,height:e,fill:l,...i,className:"remixicon "+(C||"")},t.createElement("path",{d:"M11.9999 13.1714L16.9497 8.22168L18.3639 9.63589L11.9999 15.9999L5.63599 9.63589L7.0502 8.22168L11.9999 13.1714Z"}));
 
 /**
  * @public
@@ -10116,7 +10116,7 @@ const Accordion = ({ title, children, styles }) => {
             t.createElement("div", null, title),
             t.createElement(motion.div, { initial: "collapsed", exit: "collapsed", animate: { rotate: showChild ? 180 : 0 }, className: "accordion-button", transition: { duration: 0.2 } },
                 t.createElement("button", { onClick: handleCollapse },
-                    t.createElement(L2, null)))),
+                    t.createElement(f1, null)))),
         t.createElement(AnimatePresence, null, showChild && (t.createElement(motion.div, { initial: { height: 0, opacity: 0 }, animate: { height: "auto", opacity: 1 }, exit: {
                 opacity: 0,
                 height: 0,
@@ -10126,50 +10126,7 @@ const Accordion = ({ title, children, styles }) => {
                 children))))));
 };
 
-const Accordion2 = ({ question, answer }) => {
-    const [isOpen, setIsOpen] = t.useState(true);
-    const toggleAccordion = () => {
-        setIsOpen(!isOpen);
-    };
-    return (t.createElement("div", { style: {
-            width: "100%",
-            margin: "0 auto",
-            border: "1px solid black",
-            borderRadius: "4px",
-        } },
-        t.createElement("div", { style: {
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-            }, onClick: toggleAccordion },
-            t.createElement("span", { style: {
-                    fontSize: "clamp(18px, 2.8vw, 40px)",
-                    fontWeight: 700,
-                    maxWidth: "90%",
-                } }, question),
-            t.createElement(motion.span, { animate: { rotate: isOpen ? 0 : 180 }, transition: { duration: 0.3 } },
-                t.createElement("svg", { style: {
-                        width: "clamp(14px, 3vw, 37px)",
-                        height: "clamp(18px, 3vw, 48px)",
-                    }, width: "37", height: "48", viewBox: "0 0 37 48", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-                    t.createElement("path", { d: "M18.5 24L34.5215 42L2.47853 42L18.5 24Z", fill: "white" }),
-                    t.createElement("path", { d: "M18.5 3.21854e-06L34.5215 18L2.47853 18L18.5 3.21854e-06Z", fill: "white" })))),
-        t.createElement(AnimatePresence, null, isOpen && (t.createElement(motion.div, { initial: { height: 0, opacity: 0 }, animate: { height: "auto", opacity: 1 }, exit: {
-                opacity: 0,
-                height: 0,
-            }, transition: { duration: 0.3 }, 
-            // className="overflow-hidden"
-            style: { overflow: "hidden" } },
-            t.createElement("div", { style: {
-                    fontSize: "clamp(18px, 2.8vw, 36px)",
-                    lineHeight: 1.2,
-                    maxWidth: "80%",
-                    padding: "1rem",
-                } }, answer))))));
-};
-
 exports.Accordion = Accordion;
-exports.Accordion2 = Accordion2;
 exports.Button = Button;
 exports.Input = Input;
 exports.Prompt = Prompt;

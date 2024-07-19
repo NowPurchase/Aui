@@ -53,10 +53,4 @@ interface Props {
 }
 declare const Accordion: ({ title, children, styles }: Props) => React.JSX.Element;
 
-type AccordionProps = {
-    question: string;
-    answer: React.ReactNode;
-};
-declare const Accordion2: React.FC<AccordionProps>;
-
-export { Accordion, Accordion2, Button, Input, Prompt, SearchBar };
+export { Accordion, Button, Input, Prompt, SearchBar };
