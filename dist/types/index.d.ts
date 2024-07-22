@@ -15,7 +15,7 @@ declare const Button: React.FC<Props$2>;
 interface SearchBarProps {
     value: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    handleSearch?: () => void;
+    handleSearch: () => void;
 }
 declare const SearchBar: React.FC<SearchBarProps>;
 

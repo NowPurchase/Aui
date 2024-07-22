@@ -49,8 +49,8 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$3 = ".btn {\n  background-color: #1579BE;\n  border: none;\n  width: 100%;\n  border-radius: 4px;\n  cursor: pointer;\n  padding: 11px 10px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease-in-out;\n}\n.btn.primary {\n  background-color: #1579BE;\n  font-weight: 700;\n  color: #fff;\n}\n.btn.primary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.primary:active {\n  box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;\n}\n.btn.secondary {\n  background-color: #E8F2F8;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n  color: #1579BE;\n}\n.btn.secondary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.secondary:active {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;\n}\n.btn.outlined {\n  background-color: transparent;\n  color: #1579BE;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.outlined:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.outlined:active {\n  box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;\n}\n.btn:disabled {\n  background-color: #AAAAAA;\n  border: none;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n  color: #fff;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}";
-styleInject(css_248z$3);
+var css_248z$4 = ".btn {\n  background-color: #1579BE;\n  border: none;\n  width: 100%;\n  border-radius: 4px;\n  cursor: pointer;\n  padding: 11px 10px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease-in-out;\n}\n.btn.primary {\n  background-color: #1579BE;\n  font-weight: 700;\n  color: #fff;\n}\n.btn.primary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.primary:active {\n  box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;\n}\n.btn.secondary {\n  background-color: #E8F2F8;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n  color: #1579BE;\n}\n.btn.secondary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.secondary:active {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;\n}\n.btn.outlined {\n  background-color: transparent;\n  color: #1579BE;\n  border: 1px solid #1579BE;\n  font-weight: 700;\n}\n.btn.outlined:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.outlined:active {\n  box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;\n}\n.btn:disabled {\n  background-color: #AAAAAA;\n  border: none;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n  color: #fff;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}";
+styleInject(css_248z$4);
 
 const Button = ({ children, variant = "primary", disabled = false, onClick, type, style, }) => {
     return (t.createElement("button", { disabled: disabled, className: `btn ${variant}`, onClick: onClick, type: type ?? "button", style: style }, children));
@@ -65,12 +65,25 @@ const SearchIcon = ({ fill }) => {
                 t.createElement("rect", { width: "11.9", height: "11.9", fill: "white", transform: "translate(0.150002 0.950012)" })))));
 };
 
+var css_248z$3 = ".search-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  border-radius: 8px;\n  border: 1px solid #eee;\n  padding: 0.3rem;\n  gap: 0.5rem;\n  background-color: none;\n  box-shadow: none;\n  transition: box-shadow 0.2s ease-out;\n}\n.search-container.focused {\n  border: none;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.16);\n  transition: box-shadow 0.2s ease-in;\n}\n\n.search-input {\n  border: none;\n  display: flex;\n  flex: 1;\n  outline: none;\n  padding: 0.5rem;\n  font-size: 1rem;\n}\n\n.search-button {\n  display: flex;\n  padding: 0.4rem;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
+styleInject(css_248z$3);
+
 const SearchBar = ({ value, onChange, handleSearch, }) => {
-    return (t.createElement("div", { className: "flex border border-grey flex-row justify-between p-2 rounded-lg items-center gap-2 bg-white hover:bg-blue-100 " },
-        t.createElement("input", { value: value ?? "", className: "border-none w-full outline-none", onChange: (e) => {
+    const [isFocused, setIsFocused] = t.useState(false);
+    const handleFocus = () => {
+        setIsFocused(true);
+    };
+    const handleBlur = () => {
+        setIsFocused(false);
+    };
+    return (t.createElement("form", { className: `search-container ${isFocused ? "focused" : ""}`, onSubmit: (e) => {
+            e.preventDefault();
+            handleSearch();
+        }, role: "search" },
+        t.createElement("input", { value: value ?? "", type: "search", className: "search-input", placeholder: "Search", onChange: (e) => {
                 onChange(e);
-            } }),
-        t.createElement("button", { onClick: handleSearch, type: "submit" },
+            }, onFocus: handleFocus, onBlur: handleBlur, role: "searchbox", "aria-label": "Search" }),
+        t.createElement("button", { className: "search-button", type: "submit" },
             t.createElement(SearchIcon, null))));
 };
 

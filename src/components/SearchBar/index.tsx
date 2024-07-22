@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "../../images/SearchIcon";
+import "./style.scss";
 
 export interface SearchBarProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSearch?: () => void;
+  handleSearch: () => void;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({
@@ -12,20 +13,43 @@ const SearchBar: React.FC<SearchBarProps> = ({
   onChange,
   handleSearch,
 }) => {
+  const [isFocused, setIsFocused] = useState<boolean>(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
+
   return (
-    <div className="flex border border-grey flex-row justify-between p-2 rounded-lg items-center gap-2 bg-white hover:bg-blue-100 ">
+    <form
+      className={`search-container ${isFocused ? "focused" : ""}`}
+      onSubmit={(e) => {
+        e.preventDefault();
+        handleSearch();
+      }}
+      role="search"
+    >
       <input
         value={value ?? ""}
-        className="border-none w-full outline-none"
+        type="search"
+        className="search-input"
+        placeholder="Search"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           onChange(e);
         }}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        role="searchbox"
+        aria-label="Search"
       />
 
-      <button onClick={handleSearch} type="submit">
+      <button className="search-button" type="submit">
         <SearchIcon />
       </button>
-    </div>
+    </form>
   );
 };
 
