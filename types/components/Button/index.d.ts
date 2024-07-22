@@ -8,6 +8,7 @@ export interface Props {
     disabled?: boolean;
     onClick: (e?: unknown) => void;
     type?: ButtonTypes;
+    style?: Record<string, string>;
 }
 declare const Button: React.FC<Props>;
 export default Button;

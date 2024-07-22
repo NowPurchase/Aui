@@ -10,6 +10,7 @@ export interface Props {
   disabled?: boolean;
   onClick: (e?: unknown) => void;
   type?: ButtonTypes;
+  style?: Record<string, string>;
 }
 
 const Button: React.FC<Props> = ({
@@ -18,6 +19,7 @@ const Button: React.FC<Props> = ({
   disabled = false,
   onClick,
   type,
+  style,
 }) => {
   return (
     <button
@@ -25,6 +27,7 @@ const Button: React.FC<Props> = ({
       className={`btn ${variant}`}
       onClick={onClick}
       type={type ?? "button"}
+      style={style}
     >
       {children}
     </button>
