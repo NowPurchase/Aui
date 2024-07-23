@@ -65,7 +65,7 @@ const SearchIcon = ({ fill }) => {
                 t.createElement("rect", { width: "11.9", height: "11.9", fill: "white", transform: "translate(0.150002 0.950012)" })))));
 };
 
-var css_248z$3 = ".search-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  border-radius: 8px;\n  border: 1px solid #eee;\n  padding: 0.3rem;\n  gap: 0.5rem;\n  background-color: none;\n  box-shadow: none;\n  transition: box-shadow 0.2s ease-out;\n}\n.search-container.focused {\n  border: none;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.16);\n  transition: box-shadow 0.2s ease-in;\n}\n\n.search-input {\n  border: none;\n  display: flex;\n  flex: 1;\n  outline: none;\n  padding: 0.5rem;\n  font-size: 1rem;\n}\n\n.search-button {\n  display: flex;\n  padding: 0.4rem;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
+var css_248z$3 = ".search-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  border-radius: 8px;\n  border: 1px solid #eee;\n  padding: 0.3rem;\n  gap: 0.5rem;\n  background-color: none;\n  box-shadow: none;\n  transition: box-shadow 0.2s ease-out;\n}\n.search-container.focused {\n  border: none;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.16);\n  transition: box-shadow 0.2s ease-in;\n}\n\n.search-input {\n  border: none;\n  display: flex;\n  flex: 1;\n  outline: none;\n  padding: 0.5rem;\n  font-size: 1rem;\n  background: none;\n}\n\n.search-button {\n  display: flex;\n  padding: 0.4rem;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
 styleInject(css_248z$3);
 
 const SearchBar = ({ value, onChange, handleSearch, }) => {
