@@ -138,7 +138,7 @@ const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg,
     t__default.createElement("div", { className: "input-wrapper" },
         t__default.createElement("div", { className: `input-container ${isFocused ? "focused" : ""} ${isError ? "error" : ""} ${disabled ? "disabled" : ""}` },
             prefix && t__default.createElement("span", null, prefix),
-            t__default.createElement("input", { type: type, disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e), onFocus: handleFocus, onBlur: handleBlur, style: inputStyles, pattern: type === "number" ? "[0-9]*" : "" }),
+            t__default.createElement("input", { type: type, disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e), onFocus: handleFocus, onBlur: handleBlur, style: inputStyles, pattern: type === "number" ? "[0-9]*" : "", inputMode: type === "number" ? "decimal" : "text" }),
             suffix && t__default.createElement("span", null, suffix)),
         isError && t__default.createElement("div", { className: "error-message" }, errorMsg)));
 };

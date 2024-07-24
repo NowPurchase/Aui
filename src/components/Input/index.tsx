@@ -83,6 +83,7 @@ const Input = ({
           onBlur={handleBlur}
           style={inputStyles}
           pattern={type === "number" ? "[0-9]*" : ""}
+          inputMode={type === "number" ? "decimal" : "text"}
         />
         {suffix && <span>{suffix}</span>}
       </div>
