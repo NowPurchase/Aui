@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.scss";
 
 export interface Props {
-  value: string;
+  value: string | number | undefined;
   label?: string;
   placeholder?: string;
   type?: "text" | "email" | "password" | "number";
@@ -82,6 +82,7 @@ const Input = ({
           onFocus={handleFocus}
           onBlur={handleBlur}
           style={inputStyles}
+          pattern={type === "number" ? "[0-9]*" : ""}
         />
         {suffix && <span>{suffix}</span>}
       </div>

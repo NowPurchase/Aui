@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.scss";
 export interface Props {
-    value: string;
+    value: string | number | undefined;
     label?: string;
     placeholder?: string;
     type?: "text" | "email" | "password" | "number";

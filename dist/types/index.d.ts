@@ -30,7 +30,7 @@ interface ModalProps {
 declare const Prompt: React.FC<ModalProps>;
 
 interface Props$1 {
-    value: string;
+    value: string | number | undefined;
     label?: string;
     placeholder?: string;
     type?: "text" | "email" | "password" | "number";

@@ -155,7 +155,7 @@ $error-message-color: #ff0000;
   }
 
   &.disabled {
-    background-color: v.$grey-40;
+    background-color: #f5f5f5;
     border-color: #ddd;
     cursor: not-allowed;
   }
