@@ -15,7 +15,7 @@ export interface Props {
   disabled?: boolean;
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
-  inputStyles?: Record<string, string>;
+  style?: Record<"input" | "container", Record<string, string>>;
 }
 
 const Input = ({
@@ -31,7 +31,7 @@ const Input = ({
   disabled = false,
   prefix,
   suffix,
-  inputStyles,
+  style,
 }: Props) => {
   const [isFocused, setIsFocused] = useState(false);
 
@@ -45,7 +45,7 @@ const Input = ({
   return (
     // <div className="form-group">
     //   {label && <label htmlFor="exampleInput">{label}</label>}
-    //   <input
+    //   <input#EEE
     //     disabled={disabled}
     //     readOnly={readOnly ?? undefined}
     //     required={required}
@@ -66,6 +66,7 @@ const Input = ({
         className={`input-container ${isFocused ? "focused" : ""} ${
           isError ? "error" : ""
         } ${disabled ? "disabled" : ""}`}
+        style={style?.container}
       >
         {prefix && <span>{prefix}</span>}
         <input
@@ -81,7 +82,7 @@ const Input = ({
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChange(e)}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          style={inputStyles}
+          style={style?.input}
           pattern={type === "number" ? "[0-9]*" : ""}
           inputMode={type === "number" ? "decimal" : "text"}
         />

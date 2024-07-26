@@ -1,69 +1,70 @@
-$blue-100: #1579BE ;
-$blue-80: #4494CB;
-$blue-60:#73AFD8;
-$blue-40:#A1C9E5;
-$blue-20:#D0E4F2;
-$blue-10:#E8F2F8;
+$blue-100: #1579be;
+$blue-80: #4494cb;
+$blue-60: #73afd8;
+$blue-40: #a1c9e5;
+$blue-20: #d0e4f2;
+$blue-10: #e8f2f8;
 
-$white:#fff;
+$white: #fff;
 
 // Grey Colours
 $grey-100: #000000;
 $grey-90: #303030;
 $grey-80: #606060;
 $grey-70: #909090;
-$grey-60: #AAAAAA;
+$grey-60: #aaaaaa;
 $grey-50: #303030;
-$grey-40: #F0F0F0;
-$grey-30: #FFFFFF;
+$grey-40: #f0f0f0;
+$grey-30: #ffffff;
+$grey-20: #eeeeee;
 
 // Status Colours - Red
-$red-100: #E43E2B;
-$red-80: #E86A58;
-$red-60: #E98785;
-$red-40: #EBA4B2;
-$red-20: #F0C1C0;
-$red-10: #F4DCD5;
+$red-100: #e43e2b;
+$red-80: #e86a58;
+$red-60: #e98785;
+$red-40: #eba4b2;
+$red-20: #f0c1c0;
+$red-10: #f4dcd5;
 
 // Status Colours - Green
-$green-100: #2BA24C;
-$green-80: #53B372;
-$green-60: #7BC598;
-$green-40: #A3D6BE;
-$green-20: #CCE8E4;
-$green-10: #E0F2EC;
+$green-100: #2ba24c;
+$green-80: #53b372;
+$green-60: #7bc598;
+$green-40: #a3d6be;
+$green-20: #cce8e4;
+$green-10: #e0f2ec;
 
 // Status Colours - Orange
-$orange-100: #D58C00;
-$orange-80: #DD9C33;
-$orange-60: #E6AC66;
-$orange-40: #EEBC99;
-$orange-20: #F7CACC;
-$orange-10: #F9E2D6;
+$orange-100: #d58c00;
+$orange-80: #dd9c33;
+$orange-60: #e6ac66;
+$orange-40: #eebc99;
+$orange-20: #f7cacc;
+$orange-10: #f9e2d6;
 
 // Status Colours - Purple
-$purple-100: #9636E1;
-$purple-80: #AA63E5;
-$purple-60: #BF91E9;
-$purple-40: #D3BEEE;
-$purple-20: #E8DCF2;
-$purple-10: #F3EAF7;
+$purple-100: #9636e1;
+$purple-80: #aa63e5;
+$purple-60: #bf91e9;
+$purple-40: #d3beee;
+$purple-20: #e8dcf2;
+$purple-10: #f3eaf7;
 
 // Status Colours - Teal
 $teal-100: #009797;
-$teal-80: #33A8A8;
-$teal-60: #66B9B9;
-$teal-40: #99CACA;
-$teal-20: #CCE0E0;
-$teal-10: #E6F0F0;
+$teal-80: #33a8a8;
+$teal-60: #66b9b9;
+$teal-40: #99caca;
+$teal-20: #cce0e0;
+$teal-10: #e6f0f0;
 
 // Gradient Colours
-$gradient-purple: linear-gradient(to right, #9636E1, #009797);
-$gradient-blue: linear-gradient(to right, #009797, #2BA24C);
-$gradient-teal: linear-gradient(to right, #2BA24C, #D58C00);
-$gradient-green: linear-gradient(to right, #D58C00, #E43E2B);
-$gradient-yellow: linear-gradient(to right, #E43E2B, #9636E1);
-$gradient-red: linear-gradient(to right, #9636E1, #009797);
+$gradient-purple: linear-gradient(to right, #9636e1, #009797);
+$gradient-blue: linear-gradient(to right, #009797, #2ba24c);
+$gradient-teal: linear-gradient(to right, #2ba24c, #d58c00);
+$gradient-green: linear-gradient(to right, #d58c00, #e43e2b);
+$gradient-yellow: linear-gradient(to right, #e43e2b, #9636e1);
+$gradient-red: linear-gradient(to right, #9636e1, #009797);
 
 // --- font width -----/
 $font-weight-regular: 400;

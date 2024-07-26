@@ -14,7 +14,7 @@ export interface Props {
     disabled?: boolean;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
-    inputStyles?: Record<string, string>;
+    style?: Record<"input" | "container", Record<string, string>>;
 }
-declare const Input: ({ isError, placeholder, onChange, type, value, errorMsg, name, required, readOnly, disabled, prefix, suffix, inputStyles, }: Props) => React.JSX.Element;
+declare const Input: ({ isError, placeholder, onChange, type, value, errorMsg, name, required, readOnly, disabled, prefix, suffix, style, }: Props) => React.JSX.Element;
 export default Input;

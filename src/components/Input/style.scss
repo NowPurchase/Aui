@@ -127,12 +127,11 @@ $error-message-color: #ff0000;
   width: 100%; // Adjust as needed
   padding: 0.5rem;
   background-color: v.$white;
-  border: 1px solid v.$grey-60;
+  border: 1px solid v.$grey-20;
   border-radius: 4px;
   transition: border-color 0.3s;
 
   // Disable number input spinner
-
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -143,6 +142,7 @@ $error-message-color: #ff0000;
 
   &.focused {
     border-color: v.$blue-100;
+
     // border:none
   }
 
