@@ -7,6 +7,8 @@ export interface Props {
   placeholder?: string;
   type?: "text" | "email" | "password" | "number";
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   isError?: boolean;
   errorMsg?: string;
   name?: string;
@@ -16,12 +18,15 @@ export interface Props {
   prefix?: React.ReactNode;
   suffix?: React.ReactNode;
   style?: Record<"input" | "container", Record<string, string>>;
+  props?: React.InputHTMLAttributes<HTMLInputElement>
 }
 
 const Input = ({
   isError,
   placeholder,
   onChange,
+  onBlur,
+  onFocus,
   type = "text",
   value,
   errorMsg,
@@ -32,14 +37,17 @@ const Input = ({
   prefix,
   suffix,
   style,
+  ...props
 }: Props) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  const handleFocus = () => {
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
     setIsFocused(true);
+    if (onFocus) onFocus(e);
   };
 
-  const handleBlur = () => {
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (onBlur) onBlur(e);
     setIsFocused(false);
   };
   return (
@@ -85,6 +93,7 @@ const Input = ({
           style={style?.input}
           pattern={type === "number" ? "[0-9]*" : ""}
           inputMode={type === "number" ? "decimal" : "text"}
+          {...props}
         />
         {suffix && <span>{suffix}</span>}
       </div>
