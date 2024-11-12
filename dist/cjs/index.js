@@ -128,12 +128,16 @@ const Prompt = ({ isOpen, title, children, onClose, onSuccess, cancellable, }) =
 var css_248z$1 = ".input-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100%;\n}\n\n.input-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0.5rem;\n  background-color: #fff;\n  border: 1px solid #eeeeee;\n  border-radius: 4px;\n  transition: border-color 0.3s;\n}\n.input-container input[type=number]::-webkit-inner-spin-button,\n.input-container input[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.input-container.focused {\n  border-color: #1579be;\n}\n.input-container.error {\n  border-color: #ff0000;\n}\n.input-container:hover {\n  border-color: #4494cb;\n}\n.input-container.disabled {\n  background-color: #f5f5f5;\n  border-color: #ddd;\n  cursor: not-allowed;\n}\n.input-container input {\n  border: none;\n  background: none;\n  color: #000000;\n  width: 100%;\n}\n.input-container input:focus {\n  outline: none;\n  border: none;\n}\n\n.error-message {\n  color: #ff0000;\n  margin-top: 5px;\n  font-size: 1rem;\n}";
 styleInject(css_248z$1);
 
-const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg, name, required = false, readOnly = false, disabled = false, prefix, suffix, style, }) => {
+const Input = ({ isError, placeholder, onChange, onBlur, onFocus, type = "text", value, errorMsg, name, required = false, readOnly = false, disabled = false, prefix, suffix, style, ...props }) => {
     const [isFocused, setIsFocused] = t.useState(false);
-    const handleFocus = () => {
+    const handleFocus = (e) => {
         setIsFocused(true);
+        if (onFocus)
+            onFocus(e);
     };
-    const handleBlur = () => {
+    const handleBlur = (e) => {
+        if (onBlur)
+            onBlur(e);
         setIsFocused(false);
     };
     return (
@@ -158,7 +162,7 @@ const Input = ({ isError, placeholder, onChange, type = "text", value, errorMsg,
     t.createElement("div", { className: "input-wrapper" },
         t.createElement("div", { className: `input-container ${isFocused ? "focused" : ""} ${isError ? "error" : ""} ${disabled ? "disabled" : ""}`, style: style?.container },
             prefix && t.createElement("span", null, prefix),
-            t.createElement("input", { type: type, disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e), onFocus: handleFocus, onBlur: handleBlur, style: style?.input, pattern: type === "number" ? "[0-9]*" : "", inputMode: type === "number" ? "decimal" : "text" }),
+            t.createElement("input", { type: type, disabled: disabled, readOnly: readOnly ?? undefined, required: required, value: value, name: name ?? undefined, id: "exampleInput", className: `${isError ? "is-invalid" : ""}`, placeholder: placeholder ?? "", onChange: (e) => onChange(e), onFocus: handleFocus, onBlur: handleBlur, style: style?.input, pattern: type === "number" ? "[0-9]*" : "", inputMode: type === "number" ? "decimal" : "text", ...props }),
             suffix && t.createElement("span", null, suffix)),
         isError && t.createElement("div", { className: "error-message" }, errorMsg)));
 };

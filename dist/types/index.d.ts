@@ -35,6 +35,8 @@ interface Props$1 {
     placeholder?: string;
     type?: "text" | "email" | "password" | "number";
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
     isError?: boolean;
     errorMsg?: string;
     name?: string;
@@ -44,8 +46,9 @@ interface Props$1 {
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     style?: Record<"input" | "container", Record<string, string>>;
+    props?: React.InputHTMLAttributes<HTMLInputElement>;
 }
-declare const Input: ({ isError, placeholder, onChange, type, value, errorMsg, name, required, readOnly, disabled, prefix, suffix, style, }: Props$1) => React.JSX.Element;
+declare const Input: ({ isError, placeholder, onChange, onBlur, onFocus, type, value, errorMsg, name, required, readOnly, disabled, prefix, suffix, style, ...props }: Props$1) => React.JSX.Element;
 
 interface Props {
     title: React.ReactNode;

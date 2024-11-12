@@ -6,6 +6,8 @@ export interface Props {
     placeholder?: string;
     type?: "text" | "email" | "password" | "number";
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void;
+    onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
     isError?: boolean;
     errorMsg?: string;
     name?: string;
@@ -15,6 +17,7 @@ export interface Props {
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
     style?: Record<"input" | "container", Record<string, string>>;
+    props?: React.InputHTMLAttributes<HTMLInputElement>;
 }
-declare const Input: ({ isError, placeholder, onChange, type, value, errorMsg, name, required, readOnly, disabled, prefix, suffix, style, }: Props) => React.JSX.Element;
+declare const Input: ({ isError, placeholder, onChange, onBlur, onFocus, type, value, errorMsg, name, required, readOnly, disabled, prefix, suffix, style, ...props }: Props) => React.JSX.Element;
 export default Input;
