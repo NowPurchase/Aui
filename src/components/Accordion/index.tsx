@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { RiArrowDownSLine } from "@remixicon/react";
+// import { RiArrowDownSLine } from "@remixicon/react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./style.scss";
 
@@ -31,13 +31,14 @@ const Accordion = ({ title, children, styles }: Props) => {
           transition={{ duration: 0.2 }}
         >
           <button onClick={handleCollapse}>
-            <RiArrowDownSLine style={{ color: "#606060" }} />
+            --
+            {/* <RiArrowDownSLine style={{ color: "#606060" }} /> */}
           </button>
         </motion.div>
       </div>
 
       {/* ----- children -------  */}
-      <AnimatePresence>
+      <div>
         {showChild && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
@@ -55,7 +56,7 @@ const Accordion = ({ title, children, styles }: Props) => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </div>
     </div>
   );
 };
