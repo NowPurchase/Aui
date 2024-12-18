@@ -31,7 +31,7 @@ const Accordion = ({ title, children, styles }: Props) => {
           transition={{ duration: 0.2 }}
         >
           <button onClick={handleCollapse}>
-            --
+            ^
             {/* <RiArrowDownSLine style={{ color: "#606060" }} /> */}
           </button>
         </motion.div>
