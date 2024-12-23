@@ -1,33 +1,23 @@
 import React from "react";
 import "./style.scss";
 
-export type Variants = "primary" | "outlined" | "secondary" | "teriary2";
-export type ButtonTypes = "button" | "submit" | "reset";
+export type Variants = "primary" | "secondary" | "outlined" | "tertiary" | "regular" | "medium" | "semi-bold" | "bold";
 
-export interface Props {
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: Variants;
-  disabled?: boolean;
-  onClick: (e?: unknown) => void;
-  type?: ButtonTypes;
-  style?: Record<string, string>;
 }
 
 const Button: React.FC<Props> = ({
   children,
-  variant = "primary",
-  disabled = false,
-  onClick,
-  type,
-  style,
+  variant = "primary regular",
+  className = "",
+  ...props
 }) => {
   return (
     <button
-      disabled={disabled}
-      className={`btn ${variant}`}
-      onClick={onClick}
-      type={type ?? "button"}
-      style={style}
+      className={`btn ${variant} ${className}`}
+      {...props}
     >
       {children}
     </button>

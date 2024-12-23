@@ -1,8 +1,7 @@
 @use "../../variables" as v;
 
 .btn {
-  background-color: v.$blue-100;
-  border: none;
+  border: 1px solid;
   width: 100%;
   border-radius: 4px;
   cursor: pointer;
@@ -12,10 +11,11 @@
   align-items: center;
   transition: all 0.2s ease-in-out;
 
+  // Variant 1: Background-color: #1579BE, Color: #fff, Border-color: #1579BE
   &.primary {
     background-color: v.$blue-100;
-    font-weight: v.$font-weight-bold;
     color: v.$white;
+    border-color: v.$blue-100;
     &:hover {
       box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
     }
@@ -24,39 +24,73 @@
     }
   }
 
+  // Variant 2: Background-color: #E8F2F8, Color: #1579BE, Border-color: #1579BE
   &.secondary {
     background-color: v.$blue-10;
-    border: 1px solid v.$blue-100;
-    font-weight: v.$font-weight-bold;
     color: v.$blue-100;
+    border-color: v.$blue-100;
     &:hover {
       box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
     }
     &:active {
-      box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;
+      box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;
     }
   }
 
+  // Variant 3: Background-color: v.$white, Color: #1579BE, Border-color: #1579BE
   &.outlined {
-    background-color: transparent;
+    background-color: v.$white;
     color: v.$blue-100;
-    border: 1px solid v.$blue-100;
+    border-color: v.$blue-100;
     font-weight: v.$font-weight-bold;
     &:hover {
       box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
     }
     &:active {
-      box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;
+      box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;
     }
   }
 
+  // Variant 4: Background-color: #fff, Color: #909090, Border-color: #909090
+  &.tertiary {
+    background-color: v.$white;
+    color: v.$grey-70;
+    border-color: v.$grey-70;
+    font-weight: v.$font-weight-bold;
+    &:hover {
+      box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
+    }
+    &:active {
+      box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;
+    }
+  }
+
+  // Text variant styles (combined with button variant)
+  &.regular {
+    font-weight: v.$font-weight-regular;
+  }
+
+  &.medium {
+    font-weight: v.$font-weight-medium;
+  }
+
+  &.semi-bold {
+    font-weight: v.$font-weight-semi-bold;
+  }
+
+  &.bold {
+    font-weight: v.$font-weight-bold;
+  }
+
+  // Disabled state styles
   &:disabled {
     background-color: v.$grey-60;
+    color: v.$white;
     border: none;
     outline: none;
     box-shadow: none;
     transform: none;
-    color: v.$white;
+    cursor: not-allowed;
     &:hover,
     &:active {
       box-shadow: none;
