@@ -16,7 +16,8 @@ const Button: React.FC<Props> = ({
 }) => {
   return (
     <button
-      className={`btn ${variant} ${className}`}
+      data-variant={variant}
+      className={`btn ${className}`}
       {...props}
     >
       {children}
