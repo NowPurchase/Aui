@@ -37,22 +37,23 @@ import { Button } from 'aui-component-library';
 // Outlined Button
 <Button variant="outlined">Outlined Button</Button>
 
-// Tertiary Button
-<Button variant="tertiary">Tertiary Button</Button>
+// Text Button
+<Button variant="text">Text Button</Button>
 
-// Button with Text Weight Variants
-<Button variant="primary regular">Primary Regular Text Button</Button>
-<Button variant="secondary medium">Secondary Medium Text Button</Button>
-<Button variant="outlined semi-bold">Outlined Semi-Bold Text Button</Button>
-<Button variant="tertiary bold">Tertiary Bold Text Button</Button>
+// Button with Icon and direction
+<Button variant="primary" direction="ltr" icon="add">Button with Add Icon</Button>
+<Button variant="secondary" direction="rtl" icon="edit">Button with Edit Icon</Button>
 
 // Disabled State Button
 <Button variant="primary" disabled>Disabled Button</Button>
 
+
 // Props
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variants = "primary" | "secondary" | "outlined" | "tertiary" | "regular" | "medium" | "semi-bold" | "bold";
+  variant?: "primary" | "secondary" | "outlined" | "text"; // Button variants
+  icon?: Icons; // Icon to display
+  direction?: "ltr" | "rtl" | "top-to-bottom" | "bottom-to-top"; // Button content direction
 }
 ```
 
