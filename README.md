@@ -25,26 +25,35 @@ npm install aui-component-library
 ### Button Component
 
 ```tsx
+import React from 'react';
 import { Button } from 'aui-component-library';
 
 // Default Button
-<Button>Click me</Button>
+<Button variant="primary">Default Button</Button>
 
-// Button variants
-<Button variant="default">Default Button</Button>
+// Secondary Button
+<Button variant="secondary">Secondary Button</Button>
+
+// Outlined Button
 <Button variant="outlined">Outlined Button</Button>
-<Button variant="tertiary1">Tertiary 1</Button>
-<Button variant="tertiary2">Tertiary 2</Button>
 
-// Disabled state
-<Button disabled>Disabled Button</Button>
+// Text Button
+<Button variant="text">Text Button</Button>
+
+// Button with Icon and direction
+<Button variant="primary" direction="ltr" icon="add">Button with Add Icon</Button>
+<Button variant="secondary" direction="rtl" icon="edit">Button with Edit Icon</Button>
+
+// Disabled State Button
+<Button variant="primary" disabled>Disabled Button</Button>
+
 
 // Props
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  variant?: 'default' | 'outlined' | 'tertiary1' | 'tertiary2' | 'disabled';
-  disabled?: boolean;
-  onClick?: () => void;
+  variant?: "primary" | "secondary" | "outlined" | "text"; // Button variants
+  icon?: Icons; // Icon to display
+  direction?: "ltr" | "rtl" | "top-to-bottom" | "bottom-to-top"; // Button content direction
 }
 ```
 

@@ -1,34 +1,39 @@
 import React from "react";
 import "./style.scss";
+import { Icons, iconMap } from "iconConstants";
 
-export type Variants = "primary" | "outlined" | "secondary" | "teriary2";
-export type ButtonTypes = "button" | "submit" | "reset";
+export type Variants = "primary" | "secondary" | "outlined" | "text";
+export type Direction = "ltr" | 'rtl' | "top-to-bottom" | "bottom-to-top";
 
-export interface Props {
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: Variants;
-  disabled?: boolean;
-  onClick: (e?: unknown) => void;
-  type?: ButtonTypes;
-  style?: Record<string, string>;
+  icon?: Icons;
+  direction?: Direction
 }
 
 const Button: React.FC<Props> = ({
   children,
+  icon,
   variant = "primary",
-  disabled = false,
-  onClick,
-  type,
-  style,
+  className = "",
+  direction = 'ltr',
+  ...props
 }) => {
+
+  // Map the icon prop to a Remix icon class
+  const getIconClass = () => {
+    return iconMap[icon as Icons] || '';
+  };
+
+
   return (
     <button
-      disabled={disabled}
-      className={`btn ${variant}`}
-      onClick={onClick}
-      type={type ?? "button"}
-      style={style}
+      data-variant={variant}
+      className={`btn dir-${direction} ${className}`}
+      {...props}
     >
+      {icon && <i className={`${getIconClass()}`} />}
       {children}
     </button>
   );
