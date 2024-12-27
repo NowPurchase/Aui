@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-// import { RiArrowDownSLine } from "@remixicon/react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import "./style.scss";
 
 export interface Props {
@@ -31,15 +30,15 @@ const Accordion = ({ title, children, styles }: Props) => {
           transition={{ duration: 0.2 }}
         >
           <button onClick={handleCollapse}>
-            ^
-            {/* <RiArrowDownSLine style={{ color: "#606060" }} /> */}
+            <i className="ri-arrow-down-line"></i>
           </button>
         </motion.div>
       </div>
 
       {/* ----- children -------  */}
-      <div>
-        {showChild && (
+      {/* @ts-ignore */}
+      <AnimatePresence>
+        {showChild ? (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
@@ -55,8 +54,8 @@ const Accordion = ({ title, children, styles }: Props) => {
               {children}
             </div>
           </motion.div>
-        )}
-      </div>
+         ) : <></>}
+      </AnimatePresence>
     </div>
   );
 };
