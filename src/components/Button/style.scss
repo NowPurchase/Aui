@@ -2,9 +2,7 @@
 
 .btn {
   border: 1px solid;
-  font-size: 14px;
-  font-weight: 500;
-  width: 100%;
+  width: inherit;
   border-radius: 4px;
   cursor: pointer;
   padding: 11px 10px;
@@ -13,6 +11,44 @@
   align-items: center;
   gap: 8px;
   transition: all 0.2s ease-in-out;
+
+  // Font sizes
+  &.font-size-small {
+    font-size: 14px;
+  }
+
+  &.font-size-medium {
+    font-size: 16px;
+  }
+
+  &.font-size-large {
+    font-size: 18px;
+  }
+
+  &.font-size-x-large {
+    font-size: 20px;
+  }
+
+  &.font-size-xx-large {
+    font-size: 24px;
+  }
+
+  // Font weights
+  &.font-weight-light {
+    font-weight: 400;
+  }
+
+  &.font-weight-normal {
+    font-weight: 500;
+  }
+
+  &.font-weight-semi-bold {
+    font-weight: 600;
+  }
+
+  &.font-weight-bold {
+    font-weight: 700;
+  }
 
   // Top-to-Bottom (icon on top, text below)
   &.dir-top-to-bottom {
@@ -33,7 +69,7 @@
   }
 
   // Variant 1: Background-color: #1579BE, Color: #fff, Border-color: #1579BE
-  &[data-variant="primary"] {
+  &.aui-btn-primary {
     background-color: v.$blue-100;
     color: v.$white;
     border: none;
@@ -46,7 +82,7 @@
   }
 
   // Variant 2: Background-color: #E8F2F8, Color: #1579BE, Border-color: #1579BE
-  &[data-variant="outlined"] {
+  &.aui-btn-outlined {
     background-color: v.$blue-10;
     color: v.$blue-100;
     border-color: v.$blue-100;
@@ -59,21 +95,19 @@
   }
 
   // Variant 3: Background-color: v.$white, Color: #909090, Border-color: #909090
-  &[data-variant="secondary"] {
+  &.aui-btn-secondary {
     background-color: v.$white;
     color: v.$grey-70;
-    border-color: v.$grey-70;
+    border-color: v.$grey-20;
     &:hover {
       box-shadow: 2px 2px 8px #909090a4;
       background-color: #157abe27;
       border-color: v.$blue-100;
-    }
-    &:active {
-      box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;
+      color: v.$blue-100;
     }
   }
 
-  &[data-variant="text"] {
+  &.aui-btn-text {
     border: none;
     background-color: transparent;
   }
