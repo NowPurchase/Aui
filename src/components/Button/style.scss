@@ -4,42 +4,28 @@
   border: 1px solid;
   width: inherit;
   border-radius: 4px;
+  font-size: 14px;
+  line-height: normal;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
   transition: all 0.2s ease-in-out;
-  padding-inline: 10px;
+  padding: 10px;
+
+  i {
+    color: inherit;
+    font-size: 20px;
+    line-height: normal;
+  }
 
   &:hover {
+    box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
+  }
+
+  &:focus {
     box-shadow: none;
-  }
-
-  // Font sizes
-  &.font-size-small {
-    font-size: 14px;
-    padding-block: 9px;
-  }
-
-  &.font-size-medium {
-    font-size: 16px;
-    padding-block: 7px;
-  }
-
-  &.font-size-large {
-    font-size: 18px;
-    padding-block: 6px;
-  }
-
-  &.font-size-x-large {
-    font-size: 20px;
-    padding-block: 4px;
-  }
-
-  &.font-size-xx-large {
-    font-size: 24px;
-    padding-block: 8px;
   }
 
   // Font weights
@@ -81,44 +67,39 @@
   &.aui-btn-primary {
     background-color: v.$blue-100;
     color: v.$white;
-    border-color: v.$blue-100;
-    &:hover {
-      box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
-    }
-    &:active {
-      box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;
-    }
+    border: none;
+    padding: 11px 10px;
   }
 
-  // Variant 2: Background-color: #E8F2F8, Color: #1579BE, Border-color: #1579BE
+  // Variant 2: Background-color: #FFF, Color: #1579BE, Border-color: #1579BE
   &.aui-btn-outlined {
+    background-color: v.$grey-30;
+    color: v.$blue-100;
+    border-color: v.$blue-100;
+  }
+
+  // Variant 3: Background-color: #E8F2F8, Color: #1579BE, Border-color: #1579BE
+  &.aui-btn-secondary {
     background-color: v.$blue-10;
     color: v.$blue-100;
     border-color: v.$blue-100;
+  }
+
+  // Variant 4: Background-color: #FBF3E5, Color: #D58C00, Border-color: #DEA333
+  &.aui-btn-tertiary {
+    background-color: v.$yellow-10;
+    color: v.$yellow-100;
+    border-color: v.$yellow-80;
     &:hover {
-      box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
-    }
-    &:active {
-      box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;
+      box-shadow: 12px 8px 24px 0px rgba(213, 140, 0, 0.2);
     }
   }
 
-  // Variant 3: Background-color: v.$white, Color: #909090, Border-color: #909090
-  &.aui-btn-secondary {
-    background-color: v.$white;
-    color: v.$grey-70;
+  // Variant 5: Background-color: #FFF, Color: #909090, Border-color: #EEE
+  &.aui-btn-icon {
     border-color: v.$grey-20;
-    &:hover {
-      box-shadow: 2px 2px 8px #909090a4;
-      background-color: #157abe27;
-      border-color: v.$blue-100;
-      color: v.$blue-100;
-    }
-  }
-
-  &.aui-btn-text {
-    border: none;
-    background-color: transparent;
+    background-color: v.$grey-30;
+    color: v.$grey-70;
     &[data-active="true"] {
       background-color: #157abe27;
       border-color: v.$blue-100;
@@ -134,6 +115,7 @@
     background-color: v.$grey-60;
     color: v.$white;
     border: none;
+    padding: 11px 10px;
     outline: none;
     box-shadow: none;
     transform: none;
