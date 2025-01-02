@@ -117,10 +117,10 @@
     background-color: transparent;
     &[data-active="true"] {
       background-color: #157abe27;
-      border-color: #1579be;
-      color: #1579be;
+      border-color: v.$blue-100;
+      color: v.$blue-100;
       i {
-        color: #1579be;
+        color: v.$blue-100;
       }
     }
   }
