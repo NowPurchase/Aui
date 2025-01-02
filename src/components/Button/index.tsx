@@ -33,15 +33,15 @@ const Button: React.FC<Props> = ({
     return iconMap[icon as Icons] || '';
   };
 
-    // Map fontWeight to actual pixel value
-    const fontWeightClass = weight ? `font-weight-${weight}` : '';
+  // Map fontWeight to actual pixel value
+  const fontWeightClass = weight ? `font-weight-${weight}` : '';
 
 
   return (
     <button
       data-variant={variant}
       data-active={active}
-      className={`btn dir-${direction} aui-btn-${variant} ${fontWeightClass} ${className}`}
+      className={`btn dir-${direction} ${icon && 'btn-with-icon'} aui-btn-${variant} ${fontWeightClass} ${className}`}
       {...props}
     >
       {icon && <i className={`${getIconClass()}`} />}
