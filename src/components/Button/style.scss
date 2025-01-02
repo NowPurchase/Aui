@@ -1,7 +1,14 @@
 @use "../../variables" as v;
 
+// Mixin for hover effects
+@mixin hover-effect($hover-color: inherit) {
+  &:hover {
+    box-shadow: 12px 8px 24px 0 rgba(33, 126, 192, 0.2);
+    color: $hover-color;
+  }
+}
+
 .btn {
-  all: unset;
   border: 1px solid;
   width: inherit;
   border-radius: 4px;
@@ -33,11 +40,6 @@
     color: inherit;
     font-size: 20px;
     line-height: normal;
-  }
-
-  &:not(.aui-btn-text):hover {
-    box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
-    color: inherit;
   }
 
   &:focus {
@@ -102,6 +104,7 @@
   background-color: v.$blue-100;
   color: v.$white;
   border: none;
+  @include hover-effect();
 }
 
 // Variant 2: Background-color: #FFF, Color: #1579BE, Border-color: #1579BE
@@ -109,6 +112,7 @@
   background-color: v.$grey-30;
   color: v.$blue-100;
   border-color: v.$blue-100;
+  @include hover-effect();
 }
 
 // Variant 3: Background-color: #E8F2F8, Color: #1579BE, Border-color: #1579BE
@@ -116,6 +120,7 @@
   background-color: v.$blue-10;
   color: v.$blue-100;
   border-color: v.$blue-100;
+  @include hover-effect();
 }
 
 // Variant 4: Background-color: #FBF3E5, Color: #D58C00, Border-color: #DEA333
