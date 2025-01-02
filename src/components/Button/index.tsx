@@ -2,7 +2,7 @@ import React from "react";
 import "./style.scss";
 import { Icons, iconMap } from "iconConstants";
 
-export type Variants = "primary" | "secondary" | "outlined" | "tertiary" | "icon";
+export type Variants = "primary" | "secondary" | "outlined" | "tertiary" | "icon" | "text";
 export type Direction = "ltr" | 'rtl' | "top-to-bottom" | "bottom-to-top";
 export type fontWeight = 'light' | 'normal' | 'semi-bold' | 'bold'; // Named font weights
 
