@@ -37,6 +37,7 @@
 
   &:not(.aui-btn-text):hover {
     box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
+    color: inherit;
   }
 
   &:focus {
