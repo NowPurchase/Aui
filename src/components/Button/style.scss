@@ -14,7 +14,7 @@
   transition: all 0.2s ease-in-out;
   padding: 13px 10px;
 
-  .btn-with-icon {
+  &.btn-with-icon {
     padding: 10px;
   }
 
@@ -104,6 +104,13 @@
     border-color: v.$grey-20;
     background-color: v.$grey-30;
     color: v.$grey-70;
+
+    &:hover {
+      box-shadow: 2px 2px 8px #909090a4;
+      background-color: #157abe27;
+      border-color: v.$blue-100;
+    }
+
     &[data-active="true"] {
       background-color: #157abe27;
       border-color: v.$blue-100;
