@@ -11,6 +11,11 @@
   align-items: center;
   gap: 8px;
   transition: all 0.2s ease-in-out;
+  height: 40px;
+
+  &:hover {
+    box-shadow: none;
+  }
 
   // Font sizes
   &.font-size-small {
@@ -110,6 +115,14 @@
   &.aui-btn-text {
     border: none;
     background-color: transparent;
+    &[data-active="true"] {
+      background-color: #157abe27;
+      border-color: #1579be;
+      color: #1579be;
+      i {
+        color: #1579be;
+      }
+    }
   }
 
   // Disabled state styles

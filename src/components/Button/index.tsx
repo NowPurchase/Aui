@@ -14,18 +14,20 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   direction?: Direction;
   size?: Sizes;
   weight?: fontWeight;
-  text?: React.ReactNode
+  text?: React.ReactNode;
+  active?: Boolean
 }
 
 const Button: React.FC<Props> = ({
   children,
   icon,
-  text="",
+  text = "",
   variant = "primary",
   className = "",
   direction = 'ltr',
   size = 'medium',  
   weight = 'light',
+  active = false,
   ...props
 }) => {
 
@@ -42,6 +44,7 @@ const Button: React.FC<Props> = ({
   return (
     <button
       data-variant={variant}
+      data-active={active}
       className={`btn dir-${direction} aui-btn-${variant} ${fontSizeClass} ${fontWeightClass} ${className}`}
       {...props}
     >
