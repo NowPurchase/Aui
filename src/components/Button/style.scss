@@ -1,6 +1,7 @@
 @use "../../variables" as v;
 
 .btn {
+  all: unset;
   border: 1px solid;
   width: inherit;
   border-radius: 4px;
@@ -15,11 +16,17 @@
 
   // Default padding for buttons without the btn-with-icon class
   &:not(.btn-with-icon) {
-    padding: 13px 10px;
+    padding: 12px 10px;
+    &.aui-btn-text {
+      padding: 13px 10px;
+    }
   }
 
   &.btn-with-icon {
-    padding: 10px;
+    padding: 9px 10px;
+    &.aui-btn-primary {
+      padding: 10px;
+    }
   }
 
   i {
@@ -28,7 +35,7 @@
     line-height: normal;
   }
 
-  &:hover {
+  &:not(.aui-btn-text):hover {
     box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);
   }
 
@@ -94,7 +101,6 @@
   background-color: v.$blue-100;
   color: v.$white;
   border: none;
-  padding: 11px 10px;
 }
 
 // Variant 2: Background-color: #FFF, Color: #1579BE, Border-color: #1579BE
@@ -142,4 +148,11 @@
       color: v.$blue-100;
     }
   }
+}
+
+// Variant 6: Color: #909090
+.aui-btn-text {
+  border: none;
+  color: #909090;
+  background-color: transparent;
 }
