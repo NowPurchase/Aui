@@ -1,6 +1,6 @@
 {
   "name": "aui-component-library",
-  "version": "1.0.21",
+  "version": "1.0.25",
   "description": "A react component library for Aui.",
   "files": [
     "dist/**/*"
