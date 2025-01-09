@@ -1,4 +1,4 @@
-export type Icons = "dropdown-indicator" | "check" | "calculator" | "add" | "cancel" | "duplicate" | "edit" | "right-arrow" | 'warning' | 'print' | 'filter' | 'refresh' | 'left-arrow' | 'alert' | 'info' | 'download' | 'down-arrow';
+export type Icons = "calender" | "upload" | "setting" | "dropdown-indicator" | "check" | "calculator" | "add" | "cancel" | "duplicate" | "edit" | "right-arrow" | 'warning' | 'print' | 'filter' | 'refresh' | 'left-arrow' | 'alert' | 'info' | 'download' | 'down-arrow';
 
 export const iconMap: Record<Icons, string> = {
   refresh: "ri-refresh-line",
@@ -17,5 +17,8 @@ export const iconMap: Record<Icons, string> = {
   download: "ri-file-download-line",
   check: "ri-check-line",
   calculator:"ri-calculator-line",
-  "dropdown-indicator":"ri-arrow-down-s-line"
+  calender: "ri-calendar-2-line",
+  "dropdown-indicator":"ri-arrow-down-s-line",
+  setting: "ri-settings-3-fill",
+  upload: 'ri-upload-line'
 };

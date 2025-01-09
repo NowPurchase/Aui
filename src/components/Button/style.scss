@@ -13,7 +13,7 @@
   width: inherit;
   border-radius: 4px;
   font-size: 14px;
-  line-height: normal;
+  line-height: 1;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -107,6 +107,7 @@
   background-color: v.$blue-100;
   color: v.$white;
   border: none;
+  border-color: v.$white;
   @include hover-effect(v.$white);
 }
 
@@ -164,4 +165,26 @@
   border: none;
   color: #909090;
   background-color: transparent;
+}
+
+.default-loader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid inherit;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn.loading {
+  pointer-events: none; // Prevent interactions while loading
 }

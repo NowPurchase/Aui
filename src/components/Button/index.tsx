@@ -19,7 +19,11 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   direction?: Direction;
   weight?: fontWeight;
   text?: React.ReactNode;
-  active?: Boolean;
+  active?: boolean;
+  hasIcon?: boolean;
+  loading?: boolean;
+  loader?: React.ReactNode;
+  color?: string;
 }
 
 // Forward the ref to the underlying button element
@@ -34,6 +38,10 @@ const Button = forwardRef<HTMLButtonElement, Props>(
       direction = "ltr",
       weight = "light",
       active = false,
+      hasIcon = false,
+      loading = false, // Default loading state
+      loader, // Custom loader if provided
+      color,
       ...props
     },
     ref
@@ -46,16 +54,29 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     // Map fontWeight to actual pixel value
     const fontWeightClass = weight ? `font-weight-${weight}` : "";
 
+    // Map IconClass
+    const iconClass = icon || hasIcon ? "btn-with-icon" : "";
+
     return (
       <button
         ref={ref}
         data-variant={variant}
         data-active={active}
-        className={`btn dir-${direction} ${icon && "btn-with-icon"} aui-btn-${variant} ${fontWeightClass} ${className}`}
+        style={{ color, ...props.style }} // Inline style to apply the color
+        disabled={loading || props.disabled}
+        className={`btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${
+          loading ? "loading" : ""
+        }`}
         {...props}
       >
-        {icon && <i className={`${getIconClass()}`} />}
-        {children || text}
+        {loading ? (
+          loader || <span className="default-loader" />
+        ) : (
+          <>
+            {icon && <i className={`${getIconClass()}`} />}
+            {children || text}
+          </>
+        )}
       </button>
     );
   }
