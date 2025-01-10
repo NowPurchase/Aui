@@ -28,7 +28,7 @@
       padding: 13px 10px;
     }
     &.aui-btn-primary {
-      padding: 11px 10px;
+      padding: 13px 10px;
     }
   }
 
@@ -163,8 +163,10 @@
 // Variant 6: Color: #909090
 .aui-btn-text {
   border: none;
-  color: #909090;
   background-color: transparent;
+  &:hover {
+    background-color: rgba(currentColor, 0.1);
+  }
 }
 
 .default-loader {
