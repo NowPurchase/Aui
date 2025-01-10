@@ -69,10 +69,15 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     const fontWeightClass = weight ? `font-weight-${weight}` : "";
 
     // Map IconClass
-    const iconClass = icon || hasIcon ? "btn-with-icon" : "";
+    const iconClass = (icon || hasIcon) ? "btn-with-icon" : "";
 
     // Resolve color from colorMap if colorVariant is provided
-    const resolvedColor = colorVariant ? colorMap[colorVariant] : props.style?.color;
+    const resolvedColor = colorVariant && colorMap[colorVariant];
+
+    const mergedStyle = {
+      ...(resolvedColor ? { color: resolvedColor } : {}),
+      ...props.style,
+    };
 
     return (
       <button
@@ -80,7 +85,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         data-variant={variant}
         data-active={active}
         aria-busy={loading}
-        style={{ color : resolvedColor, ...props.style }} // Inline style to apply the color
+        style={mergedStyle} // Inline style to apply the color
         disabled={loading || props.disabled}
         className={`btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${
           loading ? "loading" : ""
