@@ -12,6 +12,9 @@ export type Variants =
 export type Direction = "ltr" | "rtl" | "top-to-bottom" | "bottom-to-top";
 export type fontWeight = "light" | "normal" | "semi-bold" | "bold"; // Named font weights
 
+// Define color variants
+export type ColorVariants = "primary" | "secondary" | "success" | "error" | "warning" | "info";
+
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   variant?: Variants;
@@ -23,8 +26,18 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   hasIcon?: boolean;
   loading?: boolean;
   loader?: React.ReactNode;
-  color?: string;
+  colorVariant?: ColorVariants;
 }
+
+// Map color variants to actual CSS color values
+const colorMap: Record<ColorVariants, string> = {
+  primary: "#1579be",
+  secondary: "#909090",
+  success: "#28a745",
+  error: "#dc3545",
+  warning: "#ffc107",
+  info: "#17a2b8",
+};
 
 // Forward the ref to the underlying button element
 const Button = forwardRef<HTMLButtonElement, Props>(
@@ -41,11 +54,12 @@ const Button = forwardRef<HTMLButtonElement, Props>(
       hasIcon = false,
       loading = false, // Default loading state
       loader, // Custom loader if provided
-      color,
+      colorVariant,
       ...props
     },
     ref
   ) => {
+
     // Map the icon prop to a Remix icon class
     const getIconClass = () => {
       return iconMap[icon as Icons] || "";
@@ -57,12 +71,16 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     // Map IconClass
     const iconClass = icon || hasIcon ? "btn-with-icon" : "";
 
+    // Resolve color from colorMap if colorVariant is provided
+    const resolvedColor = colorVariant ? colorMap[colorVariant] : props.style?.color;
+
     return (
       <button
         ref={ref}
         data-variant={variant}
         data-active={active}
-        style={{ color, ...props.style }} // Inline style to apply the color
+        aria-busy={loading}
+        style={{ color : resolvedColor, ...props.style }} // Inline style to apply the color
         disabled={loading || props.disabled}
         className={`btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${
           loading ? "loading" : ""
