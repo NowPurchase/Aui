@@ -84,7 +84,6 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         ref={ref}
         data-variant={variant}
         data-active={active}
-        aria-busy={loading}
         style={mergedStyle} // Inline style to apply the color
         disabled={loading || props.disabled}
         className={`btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${
