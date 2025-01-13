@@ -27,6 +27,7 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   loader?: React.ReactNode;
   colorVariant?: ColorVariants;
+  fullWidth?: boolean
 }
 
 // Map color variants to actual CSS color values
@@ -48,12 +49,13 @@ const Button = forwardRef<HTMLButtonElement, Props>(
       variant = "primary",
       className = "",
       direction = "ltr",
-      weight = "light",
+      weight = "normal",
       active = false,
       hasIcon = false,
       loading = false, // Default loading state
       loader, // Custom loader if provided
       colorVariant,
+      fullWidth = false,
       ...props
     },
     ref
@@ -74,8 +76,9 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     const resolvedColor = colorVariant && colorMap[colorVariant];
 
     const mergedStyle = {
-      ...(resolvedColor ? { color: resolvedColor } : {}),
-      ...props.style,
+      ...props.style, // Start with props.style to include any existing styles
+      ...(resolvedColor && { color: resolvedColor }), // Override only if resolvedColor is truthy
+      ...(fullWidth && { width: '100%' }), // Override only if fullWidth is true
     };
 
     return (

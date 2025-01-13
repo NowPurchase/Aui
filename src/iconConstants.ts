@@ -1,4 +1,4 @@
-export type Icons = "history" | "calender" | "upload" | "setting" | "dropdown-indicator" | "check" | "calculator" | "add" | "cancel" | "duplicate" | "edit" | "right-arrow" | 'warning' | 'print' | 'filter' | 'refresh' | 'left-arrow' | 'alert' | 'info' | 'download' | 'down-arrow';
+export type Icons = "grid" | "list" | "phone" | "update" | "history" | "calender" | "upload" | "setting" | "dropdown-indicator" | "check" | "calculator" | "add" | "cancel" | "duplicate" | "edit" | "right-arrow" | 'warning' | 'print' | 'filter' | 'refresh' | 'left-arrow' | 'alert' | 'info' | 'download' | 'down-arrow';
 
 export const iconMap: Record<Icons, string> = {
   refresh: "ri-refresh-line",
@@ -21,5 +21,9 @@ export const iconMap: Record<Icons, string> = {
   "dropdown-indicator":"ri-arrow-down-s-line",
   setting: "ri-settings-3-fill",
   upload: 'ri-upload-line',
-  history: 'ri-history-line'
+  history: 'ri-history-line',
+  update: 'ri-save-line',
+  phone: "ri-phone-line",
+  grid: 'ri-layout-grid-line',
+  list: 'ri-list-view'
 };
