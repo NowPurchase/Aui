@@ -10,7 +10,7 @@
 
 .btn {
   border: 1px solid;
-  width: inherit;
+  width: auto;
   border-radius: 4px;
   font-size: 14px;
   line-height: 1;
@@ -20,6 +20,10 @@
   align-items: center;
   gap: 8px;
   transition: all 0.2s ease-in-out;
+
+  @media (max-width: 768px) {
+    font-size: 12px;
+  }
 
   // Apply hover background based on colorVariant
   &[data-color-variant="primary"] {
