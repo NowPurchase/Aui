@@ -13,7 +13,7 @@ export type Direction = "ltr" | "rtl" | "top-to-bottom" | "bottom-to-top";
 export type fontWeight = "light" | "normal" | "semi-bold" | "bold"; // Named font weights
 
 // Define color variants
-export type ColorVariants = "primary" | "secondary" | "success" | "error" | "warning" | "info";
+export type ColorVariants = "primary" | "secondary" | "success" | "error" | "warning";
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -33,10 +33,9 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const colorMap: Record<ColorVariants, string> = {
   primary: "#1579be",
   secondary: "#909090",
-  success: "#28a745",
-  error: "#dc3545",
-  warning: "#ffc107",
-  info: "#17a2b8",
+  success: "#2ba24c",
+  error: "#e43e2b",
+  warning: "#d58c00"
 };
 
 // Forward the ref to the underlying button element
@@ -84,6 +83,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         ref={ref}
         data-variant={variant}
         data-active={active}
+        data-color-variant={colorVariant}
         style={mergedStyle} // Inline style to apply the color
         disabled={loading || props.disabled}
         className={`btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${

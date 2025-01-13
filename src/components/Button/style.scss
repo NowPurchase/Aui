@@ -21,6 +21,37 @@
   gap: 8px;
   transition: all 0.2s ease-in-out;
 
+  // Apply hover background based on colorVariant
+  &[data-color-variant="primary"] {
+    &:hover {
+      background-color: rgba(v.$blue-100, 0.1);
+    }
+  }
+
+  &[data-color-variant="secondary"] {
+    &:hover {
+      background-color: rgba(v.$grey-70, 0.1);
+    }
+  }
+
+  &[data-color-variant="success"] {
+    &:hover {
+      background-color: rgba(v.$green-100, 0.1);
+    }
+  }
+
+  &[data-color-variant="error"] {
+    &:hover {
+      background-color: rgba(v.$red-100, 0.1);
+    }
+  }
+
+  &[data-color-variant="warning"] {
+    &:hover {
+      background-color: rgba(v.$yellow-100, 0.1);
+    }
+  }
+
   // Default padding for buttons without the btn-with-icon class
   &:not(.btn-with-icon) {
     padding: 12px 10px;
@@ -164,9 +195,6 @@
 .aui-btn-text {
   border: none;
   background-color: transparent;
-  &:hover {
-    background-color: rgba(currentColor, 0.1);
-  }
 }
 
 .default-loader {
