@@ -1,4 +1,4 @@
-export type Icons = "grid" | "list" | "phone" | "update" | "history" | "calender" | "upload" | "setting" | "dropdown-indicator" | "check" | "calculator" | "add" | "cancel" | "duplicate" | "edit" | "right-arrow" | 'warning' | 'print' | 'filter' | 'refresh' | 'left-arrow' | 'alert' | 'info' | 'download' | 'down-arrow';
+export type Icons = "grid" | "list" | "phone" | "update" | "history" | "calender" | "upload" | "setting" | "dropdown-indicator" | "check" | "calculator" | "add" | "cancel" | "duplicate" | "edit" | "right-arrow" | 'warning' | 'print' | 'filter' | 'refresh' | 'left-arrow' | 'alert' | 'info' | 'download' | 'down-arrow' | 'delete';
 
 export const iconMap: Record<Icons, string> = {
   refresh: "ri-refresh-line",
@@ -25,5 +25,6 @@ export const iconMap: Record<Icons, string> = {
   update: 'ri-save-line',
   phone: "ri-phone-line",
   grid: 'ri-layout-grid-line',
-  list: 'ri-list-view'
+  list: 'ri-list-view',
+  delete: 'ri-delete-bin-line'
 };

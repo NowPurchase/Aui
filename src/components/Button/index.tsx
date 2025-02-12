@@ -1,6 +1,6 @@
 import React, { forwardRef } from "react";
 import "./style.scss";
-import { Icons, iconMap } from "iconConstants";
+import { Icons, iconMap } from "../../iconConstants";
 
 export type Variants =
   | "primary"
