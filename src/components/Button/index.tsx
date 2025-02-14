@@ -13,7 +13,12 @@ export type Direction = "ltr" | "rtl" | "top-to-bottom" | "bottom-to-top";
 export type fontWeight = "light" | "normal" | "semi-bold" | "bold"; // Named font weights
 
 // Define color variants
-export type ColorVariants = "primary" | "secondary" | "success" | "error" | "warning";
+export type ColorVariants =
+  | "primary"
+  | "secondary"
+  | "success"
+  | "error"
+  | "warning";
 
 export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
@@ -27,17 +32,8 @@ export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   loader?: React.ReactNode;
   colorVariant?: ColorVariants;
-  fullWidth?: boolean
+  fullWidth?: boolean;
 }
-
-// Map color variants to actual CSS color values
-const colorMap: Record<ColorVariants, string> = {
-  primary: "#1579be",
-  secondary: "#909090",
-  success: "#2ba24c",
-  error: "#e43e2b",
-  warning: "#d58c00"
-};
 
 // Forward the ref to the underlying button element
 const Button = forwardRef<HTMLButtonElement, Props>(
@@ -60,7 +56,6 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     },
     ref
   ) => {
-
     // Map the icon prop to a Remix icon class
     const getIconClass = () => {
       return iconMap[icon as Icons] || "";
@@ -70,15 +65,11 @@ const Button = forwardRef<HTMLButtonElement, Props>(
     const fontWeightClass = weight ? `font-weight-${weight}` : "";
 
     // Map IconClass
-    const iconClass = (icon || hasIcon) ? "btn-with-icon" : "";
-
-    // Resolve color from colorMap if colorVariant is provided
-    const resolvedColor = colorVariant && colorMap[colorVariant];
+    const iconClass = icon || hasIcon ? "btn-with-icon" : "";
 
     const mergedStyle = {
-      ...props.style, // Start with props.style to include any existing styles
-      ...(resolvedColor && { color: resolvedColor }), // Override only if resolvedColor is truthy
-      ...(fullWidth && { width: '100%' }), // Override only if fullWidth is true
+      ...(props.style || {}), // Start with props.style to include any existing styles
+      ...(fullWidth && { width: "100%" }), // Override only if fullWidth is true
     };
 
     return (
@@ -87,15 +78,19 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         data-variant={variant}
         data-active={active}
         data-color-variant={colorVariant}
-        style={mergedStyle} // Inline style to apply the color
-        disabled={loading || props.disabled}
+        aria-busy={loading}
+        style={{ ...mergedStyle }} // Inline style to apply the color
+        disabled={props.disabled}
         className={`btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${
           loading ? "loading" : ""
         }`}
         {...props}
       >
         {loading ? (
-          loader || <span className="default-loader" />
+          <>
+            {loader || <span className="default-loader" />}
+            {children || text}
+          </>
         ) : (
           <>
             {icon && <i className={`${getIconClass()}`} />}

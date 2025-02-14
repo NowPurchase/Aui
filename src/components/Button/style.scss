@@ -27,50 +27,46 @@
 
   // Apply hover background based on colorVariant
   &[data-color-variant="primary"] {
-    &:hover {
-      background-color: rgba(v.$blue-100, 0.1);
-    }
+    color: v.$blue-100;
   }
 
   &[data-color-variant="secondary"] {
-    &:hover {
-      background-color: rgba(v.$grey-70, 0.1);
-    }
+    color: v.$grey-70;
   }
 
   &[data-color-variant="success"] {
-    &:hover {
-      background-color: rgba(v.$green-100, 0.1);
-    }
+    color: v.$green-100;
   }
 
   &[data-color-variant="error"] {
-    &:hover {
-      background-color: rgba(v.$red-100, 0.1);
-    }
+    color: v.$red-100;
   }
 
   &[data-color-variant="warning"] {
-    &:hover {
-      background-color: rgba(v.$yellow-100, 0.1);
-    }
+    color: v.$yellow-100;
   }
 
   // Default padding for buttons without the btn-with-icon class
   &:not(.btn-with-icon) {
-    padding: 12px 10px;
+    padding: 12px 20px;
     &.aui-btn-text {
-      padding: 13px 10px;
+      padding: 0;
     }
     &.aui-btn-primary {
-      padding: 13px 10px;
+      padding: 13px 20px;
     }
   }
 
   &.btn-with-icon {
-    padding: 9px 10px;
-    &.aui-btn-primary {
+    padding: 9px 20px;
+    &.aui-btn-text {
+      padding: 0;
+    }
+    &.aui-btn-icon {
       padding: 10px;
+    }
+    &.aui-btn-primary {
+      padding: 10px 20px;
     }
   }
 
@@ -203,11 +199,13 @@
 
 .default-loader {
   display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid inherit;
+  width: 16px;
+  height: 16px;
+  background-color: inherit;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
   border-radius: 50%;
-  animation: spin 1s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 
 @keyframes spin {
@@ -221,4 +219,7 @@
 
 .btn.loading {
   pointer-events: none; // Prevent interactions while loading
+  &:not(.btn-with-icon) {
+    padding: 10px 20px;
+  }
 }

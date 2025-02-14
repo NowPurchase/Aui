@@ -26,6 +26,7 @@ const meta: Meta<typeof Button> = {
     hasIcon: { control: "boolean" },
     loading: { control: "boolean" },
     active: { control: "boolean" },
+    style: { control: "object" }
   },
 };
 
@@ -35,7 +36,7 @@ type Story = StoryObj<typeof Button>;
 
 export const Default: Story = {
   args: {
-    children: "Click Me",
+    text: 'Click Me',
     variant: "primary",
     direction: "ltr",
     weight: "normal",
@@ -43,6 +44,7 @@ export const Default: Story = {
     hasIcon: false,
     loading: false,
     active: false,
+    style: {},
   },
 };
 
