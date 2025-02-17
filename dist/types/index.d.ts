@@ -1,16 +1,26 @@
 import React from 'react';
 
-type Variants = "primary" | "outlined" | "secondary" | "teriary2";
-type ButtonTypes = "button" | "submit" | "reset";
-interface Props$2 {
+type Icons = "grid" | "list" | "phone" | "update" | "history" | "calender" | "upload" | "setting" | "dropdown-indicator" | "check" | "calculator" | "add" | "cancel" | "duplicate" | "edit" | "right-arrow" | 'warning' | 'print' | 'filter' | 'refresh' | 'left-arrow' | 'alert' | 'info' | 'download' | 'down-arrow' | 'delete';
+
+type Variants = "primary" | "secondary" | "outlined" | "tertiary" | "icon" | "text";
+type Direction = "ltr" | "rtl" | "top-to-bottom" | "bottom-to-top";
+type fontWeight = "light" | "normal" | "semi-bold" | "bold";
+type ColorVariants = "primary" | "secondary" | "success" | "error" | "warning";
+interface Props$2 extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     variant?: Variants;
-    disabled?: boolean;
-    onClick: (e?: unknown) => void;
-    type?: ButtonTypes;
-    style?: Record<string, string>;
+    icon?: Icons;
+    direction?: Direction;
+    weight?: fontWeight;
+    text?: React.ReactNode;
+    active?: boolean;
+    hasIcon?: boolean;
+    loading?: boolean;
+    loader?: React.ReactNode;
+    colorVariant?: ColorVariants;
+    fullWidth?: boolean;
 }
-declare const Button: React.FC<Props$2>;
+declare const Button: React.ForwardRefExoticComponent<Props$2 & React.RefAttributes<HTMLButtonElement>>;
 
 interface SearchBarProps {
     value: string;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import React__default, { useState, useRef, useEffect, createContext, useContext, useLayoutEffect, useCallback, useMemo, forwardRef, createElement } from 'react';
+import React__default, { forwardRef, useState, useRef, useEffect, createContext, useContext, useLayoutEffect, useCallback, useMemo, createElement, cloneElement, Children, isValidElement } from 'react';
 
 function styleInject(css, ref) {
   if ( ref === void 0 ) ref = {};
@@ -28,12 +28,60 @@ function styleInject(css, ref) {
   }
 }
 
-var css_248z$4 = ".btn {\n  background-color: #1579be;\n  border: none;\n  width: 100%;\n  border-radius: 4px;\n  cursor: pointer;\n  padding: 11px 10px;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  transition: all 0.2s ease-in-out;\n}\n.btn.primary {\n  background-color: #1579be;\n  font-weight: 700;\n  color: #fff;\n}\n.btn.primary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.primary:active {\n  box-shadow: 2px 3px 5px 0px rgba(10, 53, 83, 0.4) inset;\n}\n.btn.secondary {\n  background-color: #e8f2f8;\n  border: 1px solid #1579be;\n  font-weight: 700;\n  color: #1579be;\n}\n.btn.secondary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.secondary:active {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2) inset;\n}\n.btn.outlined {\n  background-color: transparent;\n  color: #1579be;\n  border: 1px solid #1579be;\n  font-weight: 700;\n}\n.btn.outlined:hover {\n  box-shadow: 12px 8px 24px 0px rgba(33, 126, 192, 0.2);\n}\n.btn.outlined:active {\n  box-shadow: 2px 3px 10px 0px rgba(170, 170, 170, 0.4) inset;\n}\n.btn:disabled {\n  background-color: #aaaaaa;\n  border: none;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n  color: #fff;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}";
+var css_248z$4 = "@import url(https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css);\n.btn {\n  border: 1px solid;\n  width: auto;\n  border-radius: 4px;\n  font-size: 14px;\n  line-height: 1;\n  cursor: pointer;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  gap: 8px;\n  transition: all 0.2s ease-in-out;\n}\n@media (max-width: 768px) {\n  .btn {\n    font-size: 12px;\n  }\n}\n.btn[data-color-variant=primary] {\n  color: #1579be;\n}\n.btn[data-color-variant=secondary] {\n  color: #909090;\n}\n.btn[data-color-variant=success] {\n  color: #2ba24c;\n}\n.btn[data-color-variant=error] {\n  color: #e43e2b;\n}\n.btn[data-color-variant=warning] {\n  color: #d58c00;\n}\n.btn:not(.btn-with-icon) {\n  padding: 12px 20px;\n}\n.btn:not(.btn-with-icon).aui-btn-text {\n  padding: 0;\n}\n.btn:not(.btn-with-icon).aui-btn-primary {\n  padding: 13px 20px;\n}\n.btn.btn-with-icon {\n  padding: 9px 20px;\n}\n.btn.btn-with-icon.aui-btn-text {\n  padding: 0;\n}\n.btn.btn-with-icon.aui-btn-icon {\n  padding: 10px;\n}\n.btn.btn-with-icon.aui-btn-primary {\n  padding: 10px 20px;\n}\n.btn i {\n  color: inherit;\n  font-size: 20px;\n  line-height: normal;\n}\n.btn:focus {\n  box-shadow: none;\n}\n.btn.font-weight-light {\n  font-weight: 400;\n}\n.btn.font-weight-normal {\n  font-weight: 500;\n}\n.btn.font-weight-semi-bold {\n  font-weight: 600;\n}\n.btn.font-weight-bold {\n  font-weight: 700;\n}\n.btn.dir-top-to-bottom {\n  flex-direction: column;\n}\n.btn.dir-bottom-to-top {\n  flex-direction: column-reverse;\n}\n.btn.dir-ltr {\n  flex-direction: row;\n}\n.btn.dir-rtl {\n  flex-direction: row-reverse;\n}\n.btn:disabled {\n  background-color: #aaaaaa;\n  color: #fff;\n  border: none;\n  padding: 11px 10px;\n  outline: none;\n  box-shadow: none;\n  transform: none;\n  cursor: not-allowed;\n}\n.btn:disabled:hover, .btn:disabled:active {\n  box-shadow: none;\n  transform: none;\n}\n\n.aui-btn-primary {\n  background-color: #1579be;\n  color: #fff;\n  border: none;\n  border-color: #fff;\n}\n.aui-btn-primary:hover {\n  box-shadow: 12px 8px 24px 0 rgba(33, 126, 192, 0.2);\n  color: #fff;\n}\n\n.aui-btn-outlined {\n  background-color: #ffffff;\n  color: #1579be;\n  border-color: #1579be;\n}\n.aui-btn-outlined:hover {\n  box-shadow: 12px 8px 24px 0 rgba(33, 126, 192, 0.2);\n  color: #1579be;\n}\n\n.aui-btn-secondary {\n  background-color: #e8f2f8;\n  color: #1579be;\n  border-color: #1579be;\n}\n.aui-btn-secondary:hover {\n  box-shadow: 12px 8px 24px 0 rgba(33, 126, 192, 0.2);\n  color: #1579be;\n}\n\n.aui-btn-tertiary {\n  background-color: #fbf3e5;\n  color: #d58c00;\n  border-color: #dea333;\n}\n.aui-btn-tertiary:hover {\n  box-shadow: 12px 8px 24px 0px rgba(213, 140, 0, 0.2);\n}\n\n.aui-btn-icon {\n  border-color: #eeeeee;\n  background-color: #ffffff;\n  color: #909090;\n}\n.aui-btn-icon:hover {\n  box-shadow: 2px 2px 8px rgba(144, 144, 144, 0.6431372549);\n  background-color: rgba(21, 122, 190, 0.1529411765);\n  border-color: #1579be;\n  color: #1579be;\n}\n.aui-btn-icon[data-active=true] {\n  background-color: rgba(21, 122, 190, 0.1529411765);\n  border-color: #1579be;\n  color: #1579be;\n}\n.aui-btn-icon[data-active=true] i {\n  color: #1579be;\n}\n\n.aui-btn-text {\n  border: none;\n  background-color: transparent;\n}\n\n.default-loader {\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  background-color: inherit;\n  border: 2px solid currentColor;\n  border-top-color: transparent;\n  border-radius: 50%;\n  animation: spin 0.5s linear infinite;\n}\n\n@keyframes spin {\n  from {\n    transform: rotate(0deg);\n  }\n  to {\n    transform: rotate(360deg);\n  }\n}\n.btn.loading {\n  pointer-events: none;\n}\n.btn.loading:not(.btn-with-icon) {\n  padding: 10px 20px;\n}";
 styleInject(css_248z$4);
 
-const Button = ({ children, variant = "primary", disabled = false, onClick, type, style, }) => {
-    return (React__default.createElement("button", { disabled: disabled, className: `btn ${variant}`, onClick: onClick, type: type ?? "button", style: style }, children));
+const iconMap = {
+    refresh: "ri-refresh-line",
+    filter: "ri-equalizer-line",
+    print: "ri-printer-line",
+    warning: "ri-error-warning-line",
+    "right-arrow": 'ri-arrow-right-line',
+    "left-arrow": 'ri-arrow-left-line',
+    "down-arrow": "ri-arrow-down-line",
+    add: 'ri-add-line',
+    cancel: "ri-close-line",
+    duplicate: "ri-file-copy-line",
+    edit: "ri-edit-line",
+    alert: "ri-alert-line",
+    info: "ri-information-line",
+    download: "ri-file-download-line",
+    check: "ri-check-line",
+    calculator: "ri-calculator-line",
+    calender: "ri-calendar-2-line",
+    "dropdown-indicator": "ri-arrow-down-s-line",
+    setting: "ri-settings-3-fill",
+    upload: 'ri-upload-line',
+    history: 'ri-history-line',
+    update: 'ri-save-line',
+    phone: "ri-phone-line",
+    grid: 'ri-layout-grid-line',
+    list: 'ri-list-view',
+    delete: 'ri-delete-bin-line'
 };
+
+// Forward the ref to the underlying button element
+const Button = forwardRef(({ children, icon, text = "", variant = "primary", className = "", direction = "ltr", weight = "normal", active = false, hasIcon = false, loading = false, // Default loading state
+loader, // Custom loader if provided
+colorVariant, fullWidth = false, ...props }, ref) => {
+    // Map the icon prop to a Remix icon class
+    const getIconClass = () => {
+        return iconMap[icon] || "";
+    };
+    // Map fontWeight to actual pixel value
+    const fontWeightClass = weight ? `font-weight-${weight}` : "";
+    // Map IconClass
+    const iconClass = icon || hasIcon ? "btn-with-icon" : "";
+    const mergedStyle = {
+        ...(props.style || {}), // Start with props.style to include any existing styles
+        ...(fullWidth && { width: "100%" }), // Override only if fullWidth is true
+    };
+    return (React__default.createElement("button", { ref: ref, "data-variant": variant, "data-active": active, "data-color-variant": colorVariant, "aria-busy": loading, style: { ...mergedStyle }, disabled: props.disabled, className: `btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${loading ? "loading" : ""}`, ...props }, loading ? (React__default.createElement(React__default.Fragment, null,
+        loader || React__default.createElement("span", { className: "default-loader" }),
+        children || text)) : (React__default.createElement(React__default.Fragment, null,
+        icon && React__default.createElement("i", { className: `${getIconClass()}` }),
+        children || text))));
+});
 
 const SearchIcon = ({ fill }) => {
     return (React__default.createElement("svg", { width: "20", height: "20", viewBox: "0 0 13 13", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
@@ -44,7 +92,7 @@ const SearchIcon = ({ fill }) => {
                 React__default.createElement("rect", { width: "11.9", height: "11.9", fill: "white", transform: "translate(0.150002 0.950012)" })))));
 };
 
-var css_248z$3 = ".search-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  border-radius: 8px;\n  border: 1px solid #eee;\n  padding: 0.3rem;\n  gap: 0.5rem;\n  background: #fff;\n  box-shadow: none;\n  transition: box-shadow 0.2s ease-out;\n}\n.search-container.focused {\n  border: none;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.16);\n  transition: box-shadow 0.2s ease-in;\n}\n\n.search-input {\n  border: none;\n  display: flex;\n  flex: 1;\n  outline: none;\n  padding: 0.5rem;\n  font-size: 1rem;\n  background: inherit;\n}\n\n.search-button {\n  display: flex;\n  padding: 0.4rem;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
+var css_248z$3 = "@import url(https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css);\n.search-container {\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  border-radius: 8px;\n  border: 1px solid #eee;\n  padding: 0.3rem;\n  gap: 0.5rem;\n  background: #fff;\n  box-shadow: none;\n  transition: box-shadow 0.2s ease-out;\n}\n.search-container.focused {\n  border: none;\n  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.16);\n  transition: box-shadow 0.2s ease-in;\n}\n\n.search-input {\n  border: none;\n  display: flex;\n  flex: 1;\n  outline: none;\n  padding: 0.5rem;\n  font-size: 1rem;\n  background: inherit;\n}\n\n.search-button {\n  display: flex;\n  padding: 0.4rem;\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
 styleInject(css_248z$3);
 
 const SearchBar = ({ value, onChange, handleSearch, }) => {
@@ -71,7 +119,7 @@ const Success = () => {
         React__default.createElement("path", { d: "M17.0002 33.6668C7.79516 33.6668 0.333496 26.2052 0.333496 17.0002C0.333496 7.79516 7.79516 0.333496 17.0002 0.333496C26.2052 0.333496 33.6668 7.79516 33.6668 17.0002C33.6668 26.2052 26.2052 33.6668 17.0002 33.6668ZM17.0002 30.3335C20.5364 30.3335 23.9278 28.9287 26.4283 26.4283C28.9287 23.9278 30.3335 20.5364 30.3335 17.0002C30.3335 13.4639 28.9287 10.0726 26.4283 7.57207C23.9278 5.07159 20.5364 3.66683 17.0002 3.66683C13.4639 3.66683 10.0726 5.07159 7.57207 7.57207C5.07159 10.0726 3.66683 13.4639 3.66683 17.0002C3.66683 20.5364 5.07159 23.9278 7.57207 26.4283C10.0726 28.9287 13.4639 30.3335 17.0002 30.3335ZM15.3385 23.6668L8.26683 16.5952L10.6235 14.2385L15.3385 18.9535L24.7652 9.52516L27.1235 11.8818L15.3385 23.6668Z", fill: "#2BA24C" })));
 };
 
-var css_248z$2 = ".backdrop {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.5019607843);\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n}\n\n.dialogContent {\n  background-color: #fff;\n  padding: 1rem;\n  min-width: 500px;\n  min-height: 200px;\n  border-radius: 4px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.dialogContent .title_container {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  gap: 0.5rem;\n}\n.dialogContent .title_container .title {\n  font-size: 1.25rem;\n  color: #2ba24c;\n  font-weight: 700;\n}\n.dialogContent .footer {\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  gap: 0.8rem;\n}\n.dialogContent .footer .btn_div {\n  width: 100px;\n}";
+var css_248z$2 = "@import url(https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css);\n.backdrop {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0, 0, 0, 0.5019607843);\n  display: flex;\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n}\n\n.dialogContent {\n  background-color: #fff;\n  padding: 1rem;\n  min-width: 500px;\n  min-height: 200px;\n  border-radius: 4px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: flex-start;\n}\n.dialogContent .title_container {\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-start;\n  align-items: center;\n  gap: 0.5rem;\n}\n.dialogContent .title_container .title {\n  font-size: 1.25rem;\n  color: #2ba24c;\n  font-weight: 700;\n}\n.dialogContent .footer {\n  width: 100%;\n  display: flex;\n  flex-direction: row;\n  justify-content: flex-end;\n  gap: 0.8rem;\n}\n.dialogContent .footer .btn_div {\n  width: 100px;\n}";
 styleInject(css_248z$2);
 
 const Prompt = ({ isOpen, title, children, onClose, onSuccess, cancellable, }) => {
@@ -104,7 +152,7 @@ const Prompt = ({ isOpen, title, children, onClose, onSuccess, cancellable, }) =
                     React__default.createElement(Button, { onClick: onSuccess }, "Success"))))));
 };
 
-var css_248z$1 = ".input-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100%;\n}\n\n.input-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0.5rem;\n  background-color: #fff;\n  border: 1px solid #eeeeee;\n  border-radius: 4px;\n  transition: border-color 0.3s;\n}\n.input-container input[type=number]::-webkit-inner-spin-button,\n.input-container input[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.input-container.focused {\n  border-color: #1579be;\n}\n.input-container.error {\n  border-color: #ff0000;\n}\n.input-container:hover {\n  border-color: #4494cb;\n}\n.input-container.disabled {\n  background-color: #f5f5f5;\n  border-color: #ddd;\n  cursor: not-allowed;\n}\n.input-container input {\n  border: none;\n  background: none;\n  color: #000000;\n  width: 100%;\n}\n.input-container input:focus {\n  outline: none;\n  border: none;\n}\n\n.error-message {\n  color: #ff0000;\n  margin-top: 5px;\n  font-size: 1rem;\n}";
+var css_248z$1 = "@import url(https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css);\n.input-wrapper {\n  display: flex;\n  flex-direction: column;\n  align-items: flex-start;\n  width: 100%;\n}\n\n.input-container {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  width: 100%;\n  padding: 0.5rem;\n  background-color: #fff;\n  border: 1px solid #eeeeee;\n  border-radius: 4px;\n  transition: border-color 0.3s;\n}\n.input-container input[type=number]::-webkit-inner-spin-button,\n.input-container input[type=number]::-webkit-outer-spin-button {\n  -webkit-appearance: none;\n  margin: 0;\n}\n.input-container.focused {\n  border-color: #1579be;\n}\n.input-container.error {\n  border-color: #ff0000;\n}\n.input-container:hover {\n  border-color: #4494cb;\n}\n.input-container.disabled {\n  background-color: #f5f5f5;\n  border-color: #ddd;\n  cursor: not-allowed;\n}\n.input-container input {\n  border: none;\n  background: none;\n  color: #000000;\n  width: 100%;\n}\n.input-container input:focus {\n  outline: none;\n  border: none;\n}\n\n.error-message {\n  color: #ff0000;\n  margin-top: 5px;\n  font-size: 1rem;\n}";
 styleInject(css_248z$1);
 
 const Input = ({ isError, placeholder, onChange, onBlur, onFocus, type = "text", value, errorMsg, name, required = false, readOnly = false, disabled = false, prefix, suffix, style, ...props }) => {
@@ -2052,7 +2100,7 @@ function findSpring(_a) {
         envelope = function (undampedFreq) {
             var a = Math.exp(-undampedFreq * duration);
             var b = (undampedFreq - velocity) * duration + 1;
-            return -safeMin + a * b;
+            return -1e-3 + a * b;
         };
         derivative = function (undampedFreq) {
             var a = Math.exp(-undampedFreq * duration);
@@ -6343,7 +6391,7 @@ function buildLayoutProjectionTransformOrigin(_a) {
     var deltaFinal = _a.deltaFinal;
     return deltaFinal.x.origin * 100 + "% " + deltaFinal.y.origin * 100 + "% 0";
 }
-var identityProjection = buildLayoutProjectionTransform(zeroLayout.delta, zeroLayout.treeScale, { x: 1, y: 1 });
+var identityProjection = buildLayoutProjectionTransform(zeroLayout.delta, zeroLayout.treeScale, { });
 
 var names = [
     "LayoutMeasure",
@@ -7544,7 +7592,246 @@ var motion = /*@__PURE__*/ createMotionProxy(function (Component, config) {
     return createDomMotionConfig(Component, config, featureBundle, createDomVisualElement);
 });
 
-var css_248z = ".accordion-container {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  border: 1px solid #909090;\n  overflow: hidden;\n}\n\n.accordion-title-container {\n  padding: 0.5rem;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.container {\n  background-color: #f0f0f0;\n  border-radius: 0 0 4px 4px;\n  overflow: hidden;\n}\n\n.accordion-button button {\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n}";
+function useForceUpdate() {
+    var unloadingRef = useRef(false);
+    var _a = __read(useState(0), 2), forcedRenderCount = _a[0], setForcedRenderCount = _a[1];
+    useUnmountEffect(function () { return (unloadingRef.current = true); });
+    return useCallback(function () {
+        !unloadingRef.current && setForcedRenderCount(forcedRenderCount + 1);
+    }, [forcedRenderCount]);
+}
+
+var presenceId = 0;
+function getPresenceId() {
+    var id = presenceId;
+    presenceId++;
+    return id;
+}
+var PresenceChild = function (_a) {
+    var children = _a.children, initial = _a.initial, isPresent = _a.isPresent, onExitComplete = _a.onExitComplete, custom = _a.custom, presenceAffectsLayout = _a.presenceAffectsLayout;
+    var presenceChildren = useConstant(newChildrenMap);
+    var id = useConstant(getPresenceId);
+    var context = useMemo(function () { return ({
+        id: id,
+        initial: initial,
+        isPresent: isPresent,
+        custom: custom,
+        onExitComplete: function (childId) {
+            presenceChildren.set(childId, true);
+            var allComplete = true;
+            presenceChildren.forEach(function (isComplete) {
+                if (!isComplete)
+                    allComplete = false;
+            });
+            allComplete && (onExitComplete === null || onExitComplete === void 0 ? void 0 : onExitComplete());
+        },
+        register: function (childId) {
+            presenceChildren.set(childId, false);
+            return function () { return presenceChildren.delete(childId); };
+        },
+    }); }, 
+    /**
+     * If the presence of a child affects the layout of the components around it,
+     * we want to make a new context value to ensure they get re-rendered
+     * so they can detect that layout change.
+     */
+    presenceAffectsLayout ? undefined : [isPresent]);
+    useMemo(function () {
+        presenceChildren.forEach(function (_, key) { return presenceChildren.set(key, false); });
+    }, [isPresent]);
+    /**
+     * If there's no `motion` components to fire exit animations, we want to remove this
+     * component immediately.
+     */
+    React.useEffect(function () {
+        !isPresent && !presenceChildren.size && (onExitComplete === null || onExitComplete === void 0 ? void 0 : onExitComplete());
+    }, [isPresent]);
+    return (React.createElement(PresenceContext.Provider, { value: context }, children));
+};
+function newChildrenMap() {
+    return new Map();
+}
+
+function getChildKey(child) {
+    return child.key || "";
+}
+function updateChildLookup(children, allChildren) {
+    var seenChildren = process.env.NODE_ENV !== "production" ? new Set() : null;
+    children.forEach(function (child) {
+        var key = getChildKey(child);
+        if (process.env.NODE_ENV !== "production" && seenChildren) {
+            if (seenChildren.has(key)) {
+                console.warn("Children of AnimatePresence require unique keys. \"" + key + "\" is a duplicate.");
+            }
+            seenChildren.add(key);
+        }
+        allChildren.set(key, child);
+    });
+}
+function onlyElements(children) {
+    var filtered = [];
+    // We use forEach here instead of map as map mutates the component key by preprending `.$`
+    Children.forEach(children, function (child) {
+        if (isValidElement(child))
+            filtered.push(child);
+    });
+    return filtered;
+}
+/**
+ * `AnimatePresence` enables the animation of components that have been removed from the tree.
+ *
+ * When adding/removing more than a single child, every child **must** be given a unique `key` prop.
+ *
+ * @library
+ *
+ * Any `Frame` components that have an `exit` property defined will animate out when removed from
+ * the tree.
+ *
+ * ```jsx
+ * import { Frame, AnimatePresence } from 'framer'
+ *
+ * // As items are added and removed from `items`
+ * export function Items({ items }) {
+ *   return (
+ *     <AnimatePresence>
+ *       {items.map(item => (
+ *         <Frame
+ *           key={item.id}
+ *           initial={{ opacity: 0 }}
+ *           animate={{ opacity: 1 }}
+ *           exit={{ opacity: 0 }}
+ *         />
+ *       ))}
+ *     </AnimatePresence>
+ *   )
+ * }
+ * ```
+ *
+ * You can sequence exit animations throughout a tree using variants.
+ *
+ * @motion
+ *
+ * Any `motion` components that have an `exit` property defined will animate out when removed from
+ * the tree.
+ *
+ * ```jsx
+ * import { motion, AnimatePresence } from 'framer-motion'
+ *
+ * export const Items = ({ items }) => (
+ *   <AnimatePresence>
+ *     {items.map(item => (
+ *       <motion.div
+ *         key={item.id}
+ *         initial={{ opacity: 0 }}
+ *         animate={{ opacity: 1 }}
+ *         exit={{ opacity: 0 }}
+ *       />
+ *     ))}
+ *   </AnimatePresence>
+ * )
+ * ```
+ *
+ * You can sequence exit animations throughout a tree using variants.
+ *
+ * If a child contains multiple `motion` components with `exit` props, it will only unmount the child
+ * once all `motion` components have finished animating out. Likewise, any components using
+ * `usePresence` all need to call `safeToRemove`.
+ *
+ * @public
+ */
+var AnimatePresence = function (_a) {
+    var children = _a.children, custom = _a.custom, _b = _a.initial, initial = _b === void 0 ? true : _b, onExitComplete = _a.onExitComplete, exitBeforeEnter = _a.exitBeforeEnter, _c = _a.presenceAffectsLayout, presenceAffectsLayout = _c === void 0 ? true : _c;
+    // We want to force a re-render once all exiting animations have finished. We
+    // either use a local forceRender function, or one from a parent context if it exists.
+    var forceRender = useForceUpdate();
+    var layoutContext = useContext(SharedLayoutContext);
+    if (isSharedLayout(layoutContext)) {
+        forceRender = layoutContext.forceUpdate;
+    }
+    var isInitialRender = useRef(true);
+    // Filter out any children that aren't ReactElements. We can only track ReactElements with a props.key
+    var filteredChildren = onlyElements(children);
+    // Keep a living record of the children we're actually rendering so we
+    // can diff to figure out which are entering and exiting
+    var presentChildren = useRef(filteredChildren);
+    // A lookup table to quickly reference components by key
+    var allChildren = useRef(new Map())
+        .current;
+    // A living record of all currently exiting components.
+    var exiting = useRef(new Set()).current;
+    updateChildLookup(filteredChildren, allChildren);
+    // If this is the initial component render, just deal with logic surrounding whether
+    // we play onMount animations or not.
+    if (isInitialRender.current) {
+        isInitialRender.current = false;
+        return (React.createElement(React.Fragment, null, filteredChildren.map(function (child) { return (React.createElement(PresenceChild, { key: getChildKey(child), isPresent: true, initial: initial ? undefined : false, presenceAffectsLayout: presenceAffectsLayout }, child)); })));
+    }
+    // If this is a subsequent render, deal with entering and exiting children
+    var childrenToRender = __spreadArray([], __read(filteredChildren));
+    // Diff the keys of the currently-present and target children to update our
+    // exiting list.
+    var presentKeys = presentChildren.current.map(getChildKey);
+    var targetKeys = filteredChildren.map(getChildKey);
+    // Diff the present children with our target children and mark those that are exiting
+    var numPresent = presentKeys.length;
+    for (var i = 0; i < numPresent; i++) {
+        var key = presentKeys[i];
+        if (targetKeys.indexOf(key) === -1) {
+            exiting.add(key);
+        }
+        else {
+            // In case this key has re-entered, remove from the exiting list
+            exiting.delete(key);
+        }
+    }
+    // If we currently have exiting children, and we're deferring rendering incoming children
+    // until after all current children have exiting, empty the childrenToRender array
+    if (exitBeforeEnter && exiting.size) {
+        childrenToRender = [];
+    }
+    // Loop through all currently exiting components and clone them to overwrite `animate`
+    // with any `exit` prop they might have defined.
+    exiting.forEach(function (key) {
+        // If this component is actually entering again, early return
+        if (targetKeys.indexOf(key) !== -1)
+            return;
+        var child = allChildren.get(key);
+        if (!child)
+            return;
+        var insertionIndex = presentKeys.indexOf(key);
+        var onExit = function () {
+            allChildren.delete(key);
+            exiting.delete(key);
+            // Remove this child from the present children
+            var removeIndex = presentChildren.current.findIndex(function (presentChild) { return presentChild.key === key; });
+            presentChildren.current.splice(removeIndex, 1);
+            // Defer re-rendering until all exiting children have indeed left
+            if (!exiting.size) {
+                presentChildren.current = filteredChildren;
+                forceRender();
+                onExitComplete && onExitComplete();
+            }
+        };
+        childrenToRender.splice(insertionIndex, 0, React.createElement(PresenceChild, { key: getChildKey(child), isPresent: false, onExitComplete: onExit, custom: custom, presenceAffectsLayout: presenceAffectsLayout }, child));
+    });
+    // Add `MotionContext` even to children that don't need it to ensure we're rendering
+    // the same tree between renders
+    childrenToRender = childrenToRender.map(function (child) {
+        var key = child.key;
+        return exiting.has(key) ? (child) : (React.createElement(PresenceChild, { key: getChildKey(child), isPresent: true, presenceAffectsLayout: presenceAffectsLayout }, child));
+    });
+    presentChildren.current = childrenToRender;
+    if (process.env.NODE_ENV !== "production" &&
+        exitBeforeEnter &&
+        childrenToRender.length > 1) {
+        console.warn("You're attempting to animate multiple children within AnimatePresence, but its exitBeforeEnter prop is set to true. This will lead to odd visual behaviour.");
+    }
+    return (React.createElement(React.Fragment, null, exiting.size
+        ? childrenToRender
+        : childrenToRender.map(function (child) { return cloneElement(child); })));
+};
+
+var css_248z = "@import url(https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css);\n.accordion-container {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  border: 1px solid #909090;\n  overflow: hidden;\n}\n\n.accordion-title-container {\n  padding: 0.5rem;\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n}\n\n.container {\n  background-color: #f0f0f0;\n  border-radius: 0 0 4px 4px;\n  overflow: hidden;\n}\n\n.accordion-button button {\n  border: none;\n  outline: none;\n  background: none;\n  cursor: pointer;\n  transform: rotate(180deg);\n}";
 styleInject(css_248z);
 
 const Accordion = ({ title, children, styles }) => {
@@ -7556,14 +7843,15 @@ const Accordion = ({ title, children, styles }) => {
         React__default.createElement("div", { className: "accordion-title-container", onClick: handleCollapse, style: styles?.header },
             React__default.createElement("div", null, title),
             React__default.createElement(motion.div, { initial: "collapsed", exit: "collapsed", animate: { rotate: showChild ? 180 : 0 }, className: "accordion-button", transition: { duration: 0.2 } },
-                React__default.createElement("button", { onClick: handleCollapse }, "--"))),
-        React__default.createElement("div", null, showChild && (React__default.createElement(motion.div, { initial: { height: 0, opacity: 0 }, animate: { height: "auto", opacity: 1 }, exit: {
+                React__default.createElement("button", { onClick: handleCollapse },
+                    React__default.createElement("i", { className: "ri-arrow-down-line" })))),
+        React__default.createElement(AnimatePresence, null, showChild ? (React__default.createElement(motion.div, { initial: { height: 0, opacity: 0 }, animate: { height: "auto", opacity: 1 }, exit: {
                 opacity: 0,
                 height: 0,
             }, transition: { duration: 0.1, ease: "easeInOut" }, className: "container" },
             React__default.createElement("div", { style: { borderRadius: "0 0 4px 4px", ...styles?.body } },
                 " ",
-                children))))));
+                children))) : React__default.createElement(React__default.Fragment, null))));
 };
 
 export { Accordion, Button, Input, Prompt, SearchBar };

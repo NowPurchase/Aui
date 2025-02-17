@@ -1,14 +1,23 @@
 import React from "react";
 import "./style.scss";
-export type Variants = "primary" | "outlined" | "secondary" | "teriary2";
-export type ButtonTypes = "button" | "submit" | "reset";
-export interface Props {
+import { Icons } from "../../iconConstants";
+export type Variants = "primary" | "secondary" | "outlined" | "tertiary" | "icon" | "text";
+export type Direction = "ltr" | "rtl" | "top-to-bottom" | "bottom-to-top";
+export type fontWeight = "light" | "normal" | "semi-bold" | "bold";
+export type ColorVariants = "primary" | "secondary" | "success" | "error" | "warning";
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     variant?: Variants;
-    disabled?: boolean;
-    onClick: (e?: unknown) => void;
-    type?: ButtonTypes;
-    style?: Record<string, string>;
+    icon?: Icons;
+    direction?: Direction;
+    weight?: fontWeight;
+    text?: React.ReactNode;
+    active?: boolean;
+    hasIcon?: boolean;
+    loading?: boolean;
+    loader?: React.ReactNode;
+    colorVariant?: ColorVariants;
+    fullWidth?: boolean;
 }
-declare const Button: React.FC<Props>;
+declare const Button: React.ForwardRefExoticComponent<Props & React.RefAttributes<HTMLButtonElement>>;
 export default Button;
