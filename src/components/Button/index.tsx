@@ -84,6 +84,7 @@ const Button = forwardRef<HTMLButtonElement, Props>(
         className={`btn dir-${direction} ${iconClass} aui-btn-${variant} ${fontWeightClass} ${className} ${
           loading ? "loading" : ""
         }`}
+        type={props.type || 'button'}
         {...props}
       >
         {loading ? (
